@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Fábrica de marquillas, clisés, apliques en PVC y herrajes en Bogotá. Muestra física antes de cada lote.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#09090B">
+<meta name="theme-color" content="#070A12">
 <title>Marquillas Mitchell</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -15,11 +15,11 @@
    Un solo tipo. Acento rojo solo donde hay acción.
    ============================================================ */
 :root{
-  --bg:      #09090B;
-  --bg-2:    #101012;
-  --surf:    #161618;
-  --surf-2:  #1D1D21;
-  --surf-3:  #26262B;
+  --bg:      #070A12;
+  --bg-2:    #0B0F1A;
+  --surf:    rgba(20,25,40,.72);
+  --surf-2:  rgba(28,34,52,.82);
+  --surf-3:  rgba(38,45,66,.9);
 
   --txt:     #FAFAFA;
   --txt-2:   #A4A4AD;
@@ -80,7 +80,7 @@ section{padding-block:var(--pad)}
 
 /* ---------- NAV: DOS NIVELES ---------- */
 .topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:70;
-        background:rgba(9,9,11,.82);backdrop-filter:saturate(180%) blur(20px);
+        background:rgba(7,10,18,.72);backdrop-filter:saturate(180%) blur(22px);
         border-bottom:1px solid var(--line)}
 .nav1{display:flex;align-items:center;gap:1rem;min-height:62px}
 .logo{display:flex;flex-direction:column;line-height:1;flex:none}
@@ -383,10 +383,51 @@ dialog.viewer::backdrop{background:rgba(5,5,7,.86);backdrop-filter:blur(10px)}
 .vcta{margin-top:auto;padding-top:.5rem;display:grid;gap:.55rem}
 .vcta .btn{width:100%}
 .vnote{font-size:.6875rem;color:var(--txt-4);text-align:center}
+
+/* ============ CIELO ============
+   Tres capas: nebulosa que deriva, estrellas en canvas, y un velo
+   que baja la intensidad donde hay texto. Nada de neón.        */
+.sky{position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;
+     background:
+       radial-gradient(120% 85% at 50% -15%, #101830 0%, transparent 62%),
+       linear-gradient(#070A12, #05070E 60%, #070A12)}
+.neb{position:absolute;inset:-25%;pointer-events:none;
+     background:
+       radial-gradient(38% 30% at 22% 26%, rgba(64,96,190,.20), transparent 68%),
+       radial-gradient(34% 28% at 78% 18%, rgba(140,80,190,.13), transparent 70%),
+       radial-gradient(30% 26% at 62% 74%, rgba(200,64,56,.10), transparent 72%),
+       radial-gradient(42% 34% at 12% 82%, rgba(46,76,150,.14), transparent 70%);
+     filter:blur(28px)}
+@media (prefers-reduced-motion:no-preference){
+  .neb{animation:drift 96s ease-in-out infinite alternate}
+  @keyframes drift{
+    0%  {transform:translate3d(-2.5%,-1.5%,0) scale(1.05) rotate(0deg)}
+    50% {transform:translate3d(2%,2.5%,0)   scale(1.12) rotate(1.2deg)}
+    100%{transform:translate3d(-1%,1%,0)    scale(1.07) rotate(-.8deg)}
+  }
+}
+#stars{position:absolute;inset:0;width:100%;height:100%;display:block}
+/* Velo: la galaxia se apaga donde vive el texto, nunca al revés */
+.sky::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(7,10,18,.12) 0%, rgba(7,10,18,.55) 46%, rgba(7,10,18,.78) 100%)}
+
+/* Las superficies dejan pasar el cielo */
+body{background:transparent}
+.stats,.reel,.cta{background:rgba(9,13,24,.55);backdrop-filter:blur(3px)}
+.card,.col{backdrop-filter:blur(7px)}
+.finder-box{background:rgba(16,21,34,.78);backdrop-filter:blur(8px)}
+.chip{background:rgba(16,21,34,.6);backdrop-filter:blur(6px)}
+footer{background:rgba(5,7,14,.78);backdrop-filter:blur(6px)}
+.vcard{background:rgba(14,18,30,.94);backdrop-filter:blur(16px)}
 </style>
 
 </head>
 <body>
+<div class="sky" aria-hidden="true">
+  <div class="neb"></div>
+  <canvas id="stars"></canvas>
+</div>
+
 <!-- NAV -->
 <div class="topbar">
   <nav class="wrap nav1" aria-label="Principal">
@@ -891,6 +932,94 @@ document.querySelectorAll('#grid .card').forEach(function(c,i){ c.style.setPrope
     shot.classList.remove('on');
     if (last) last.focus();
   });
+})();
+
+// ===== Campo de estrellas: tres profundidades, deriva lenta, parallax al scroll =====
+(function(){
+  var cv = document.getElementById('stars');
+  if (!cv) return;
+  var ctx = cv.getContext('2d', { alpha: true });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0, stars = [], scrollY = 0, raf = null, t = 0;
+
+  // Tres capas: lejana tenue y numerosa, cercana brillante y escasa.
+  var LAYERS = [
+    { n: 0.00016, r: [0.35, 0.85], a: [0.16, 0.42], p: 0.012 },
+    { n: 0.00007, r: [0.60, 1.25], a: [0.30, 0.62], p: 0.035 },
+    { n: 0.00002, r: [0.95, 1.85], a: [0.50, 0.92], p: 0.075 }
+  ];
+  // Tintes fríos con alguna estrella cálida, como un cielo real.
+  var TINTS = ['255,255,255','208,222,255','186,206,255','255,238,214','255,214,206'];
+
+  function build(){
+    stars = [];
+    var area = W * H;
+    LAYERS.forEach(function(L, li){
+      var count = Math.min(Math.round(area * L.n), 260);
+      for (var i = 0; i < count; i++){
+        stars.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          r: L.r[0] + Math.random() * (L.r[1] - L.r[0]),
+          a: L.a[0] + Math.random() * (L.a[1] - L.a[0]),
+          p: L.p,
+          c: TINTS[(Math.random() * TINTS.length) | 0],
+          s: 0.25 + Math.random() * 0.7,      // velocidad del titileo
+          o: Math.random() * Math.PI * 2,     // desfase, para que no parpadeen a la vez
+          big: li === 2
+        });
+      }
+    });
+  }
+
+  function size(){
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    build();
+    if (reduce) draw();
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < stars.length; i++){
+      var st = stars[i];
+      var y = st.y - scrollY * st.p;
+      y = ((y % H) + H) % H;                       // envuelve, el cielo no se acaba
+      var a = reduce ? st.a : st.a * (0.72 + 0.28 * Math.sin(t * st.s + st.o));
+      ctx.beginPath();
+      ctx.arc(st.x, y, st.r, 0, 6.2832);
+      ctx.fillStyle = 'rgba(' + st.c + ',' + a.toFixed(3) + ')';
+      ctx.fill();
+      if (st.big){                                  // halo solo en las cercanas
+        ctx.beginPath();
+        ctx.arc(st.x, y, st.r * 3.4, 0, 6.2832);
+        ctx.fillStyle = 'rgba(' + st.c + ',' + (a * 0.09).toFixed(3) + ')';
+        ctx.fill();
+      }
+    }
+  }
+
+  var last = 0;
+  function loop(ts){
+    raf = requestAnimationFrame(loop);
+    if (ts - last < 33) return;                     // 30 fps basta para un titileo lento
+    last = ts; t += 0.021;
+    draw();
+  }
+
+  function start(){ if (!raf && !reduce) raf = requestAnimationFrame(loop); }
+  function stop(){ if (raf) { cancelAnimationFrame(raf); raf = null; } }
+
+  window.addEventListener('scroll', function(){ scrollY = window.scrollY || 0; }, { passive: true });
+  window.addEventListener('resize', function(){ size(); }, { passive: true });
+  document.addEventListener('visibilitychange', function(){
+    document.hidden ? stop() : start();             // no gasta batería en segundo plano
+  });
+
+  size();
+  start();
 })();
 </script>
 
