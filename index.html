@@ -265,6 +265,72 @@ footer a:hover{color:#fff}
 .legal b{color:var(--txt-2);font-weight:600}
 .fbot{margin-top:2.75rem;padding-top:1.5rem;border-top:1px solid var(--line);
       display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;font-size:.6875rem;color:var(--txt-4)}
+
+/* ============ CAPA DE OFICIO ============ */
+
+/* Grano de película. Marcador anti-IA: lo genérico nunca tiene textura. */
+body::before{
+  content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+/* Entrada orquestada: una sola secuencia al cargar, no efectos sueltos */
+@media (prefers-reduced-motion:no-preference){
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .hero h1,.hero .lead,.hero .finder,.nav2{animation:rise .62s var(--ease) both}
+  .hero h1{animation-delay:.04s}
+  .hero .lead{animation-delay:.13s}
+  .hero .finder{animation-delay:.22s}
+  .nav2{animation-delay:.3s}
+  #grid .card{animation:rise .5s var(--ease) both;animation-delay:calc(var(--i,0)*55ms + .34s)}
+}
+
+/* Barrido de luz sobre la foto al pasar el cursor */
+.thumb::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.13) 50%,transparent 62%);
+  transform:translateX(-60%);transition:opacity .3s var(--ease);
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .card:hover .thumb::after{opacity:1;animation:sweep .85s var(--ease)}
+  @keyframes sweep{from{transform:translateX(-60%)}to{transform:translateX(60%)}}
+}
+
+/* Las cifras se alinean como en una ficha técnica */
+.stat b{font-variant-numeric:tabular-nums}
+
+/* Cinta de producción: el telar, a sangre completa */
+.reel{border-block:1px solid var(--line);background:var(--bg-2);
+      padding-block:clamp(2.25rem,4vw,3.25rem);overflow:hidden}
+.reel .cap{max-width:var(--maxw);margin:0 auto clamp(1.25rem,2.5vw,1.75rem);
+           padding-inline:var(--gutter);display:flex;justify-content:space-between;
+           gap:1rem;flex-wrap:wrap;align-items:baseline}
+.track{display:flex;gap:.85rem;width:max-content}
+@media (prefers-reduced-motion:no-preference){
+  .track{animation:slide 52s linear infinite}
+  .reel:hover .track{animation-play-state:paused}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+}
+@media (prefers-reduced-motion:reduce){
+  .reel{overflow-x:auto}
+}
+.track figure{margin:0;flex:none;width:clamp(11rem,26vw,16rem);
+              border:1px solid var(--line);border-radius:12px;overflow:hidden;
+              background:var(--surf);position:relative}
+.track img{width:100%;aspect-ratio:4/3;object-fit:cover;opacity:.78;
+           transition:opacity .3s var(--ease)}
+.track figure:hover img{opacity:1}
+.track figcaption{position:absolute;left:0;right:0;bottom:0;padding:.55rem .7rem;
+                  font-size:.6875rem;color:var(--txt-2);
+                  background:linear-gradient(transparent,rgba(9,9,11,.92))}
+
+/* El subrayado de los enlaces crece desde la izquierda */
+.ul{position:relative;color:var(--txt);font-weight:600}
+.ul::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;
+           background:currentColor;transform:scaleX(0);transform-origin:left;
+           transition:transform .28s var(--ease)}
+.ul:hover::after{transform:scaleX(1)}
 </style>
 
 </head>
@@ -430,6 +496,25 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+
+<!-- CINTA DE PRODUCCIÓN -->
+<div class="reel">
+  <div class="cap">
+    <span class="mono">Salido de la planta</span>
+    <span class="mono" style="color:var(--txt-4)">Restrepo · Bogotá</span>
+  </div>
+  <div class="track" id="track">
+    <figure><img src="img/tejida-480.webp" alt="Marquilla tejida" loading="lazy"><figcaption>Tejida · 8 colores</figcaption></figure>
+    <figure><img src="img/3d-480.webp" alt="Marquilla 3D" loading="lazy"><figcaption>3D en PVC</figcaption></figure>
+    <figure><img src="img/clise-480.webp" alt="Clisé en fotograbado" loading="lazy"><figcaption>Clisé en magnesio</figcaption></figure>
+    <figure><img src="img/herraje-480.webp" alt="Herraje personalizado" loading="lazy"><figcaption>Herraje envejecido</figcaption></figure>
+    <figure><img src="img/pvc-480.webp" alt="Aplique en PVC" loading="lazy"><figcaption>Aplique en PVC</figcaption></figure>
+    <figure><img src="img/llavero-480.webp" alt="Llavero publicitario" loading="lazy"><figcaption>Llavero en caucho</figcaption></figure>
+    <figure><img src="img/hero-480.webp" alt="Marquilla terminada" loading="lazy"><figcaption>Corte caliente</figcaption></figure>
+    <figure><img src="img/caso-480.webp" alt="Clisé en magnesio de 3 mm" loading="lazy"><figcaption>Magnesio 3 mm</figcaption></figure>
+  </div>
+</div>
+
 <!-- CIFRAS -->
 <div class="stats">
   <div class="wrap">
@@ -575,6 +660,45 @@ footer a:hover{color:#fff}
 </a>
 
 <script>
+
+// Índice para escalonar la entrada de las tarjetas
+document.querySelectorAll('#grid .card').forEach(function(c,i){ c.style.setProperty('--i', i); });
+
+// La cinta se duplica para que el bucle no tenga costura
+(function(){
+  var t = document.getElementById('track');
+  if (!t) return;
+  t.innerHTML += t.innerHTML;
+})();
+
+// Las cifras cuentan al entrar en pantalla. Una sola vez.
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nums = Array.prototype.slice.call(document.querySelectorAll('.stat b'));
+  if (reduce || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      io.unobserve(en.target);
+      var el = en.target, full = el.textContent.trim();
+      var m = full.match(/(\D*)(\d+)(.*)/);
+      if (!m) return;
+      var pre = m[1], target = parseInt(m[2], 10), post = m[3];
+      var t0 = null, dur = 900;
+      function tick(ts){
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = pre + Math.round(target * e) + post;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      el.textContent = pre + '0' + post;
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: .55 });
+  nums.forEach(function(n){ io.observe(n); });
+})();
+
 (function(){
   var input = document.getElementById('q');
   var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
