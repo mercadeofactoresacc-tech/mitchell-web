@@ -3,58 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Fábrica de marquillas, clisés, apliques en PVC y herrajes en Bogotá. Muestra física antes de producir.">
+<meta name="description" content="Fábrica de marquillas, clisés, apliques en PVC y herrajes en Bogotá. Muestra física antes de cada lote.">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#09090B">
 <title>Marquillas Mitchell</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   MITCHELL v3 — Dirección aprobada por el cliente.
-   Índigo sólido (nunca gradiente), un acento rojo de marca,
-   tipografía de display pesada. Referencia: Chainguard.
+   MITCHELL v4 — Sobrio. Fondo neutro casi negro.
+   El color lo pone el producto, no la página.
+   Un solo tipo. Acento rojo solo donde hay acción.
    ============================================================ */
 :root{
-  /* Índigo, plano y sólido */
-  --deep:    #140F3D;
-  --deep-2:  #1B1550;
-  --indigo:  #3A2FE0;
-  --indigo-2:#4B41F5;
-  --violet:  #6B5CFF;
+  --bg:      #09090B;
+  --bg-2:    #101012;
+  --surf:    #161618;
+  --surf-2:  #1D1D21;
+  --surf-3:  #26262B;
 
-  /* Claro */
-  --paper:   #F6F6FB;
-  --white:   #FFFFFF;
-  --ink:     #131033;
-  --ink-2:   #4A4570;
-  --ink-3:   #7A7599;
+  --txt:     #FAFAFA;
+  --txt-2:   #A4A4AD;
+  --txt-3:   #71717A;
+  --txt-4:   #52525B;
 
-  /* Sobre índigo */
-  --on:      #FFFFFF;
-  --on-2:    #C9C5F0;
-  --on-3:    #9691C9;
-  --on-4:    #6F6A9E;
-
-  /* Acento: el rojo de Mitchell */
-  --red:     #FF3B30;
-  --red-d:   #E02419;
+  --accent:  #F04438;
+  --accent-d:#D92D20;
   --wa:      #25D366;
 
-  --line:    rgba(255,255,255,.14);
-  --line-2:  rgba(255,255,255,.26);
-  --line-lt: #E4E3F0;
+  --line:    rgba(255,255,255,.08);
+  --line-2:  rgba(255,255,255,.14);
+  --line-3:  rgba(255,255,255,.22);
 
-  --pad:     clamp(4.5rem, 9vw, 9rem);
+  --pad:     clamp(4rem, 8vw, 7.5rem);
   --gutter:  clamp(1.25rem, 4vw, 2.5rem);
-  --maxw:    76rem;
+  --maxw:    75rem;
 
-  --t-hero: clamp(2.9rem, 1rem + 8.4vw, 6.6rem);
-  --t-h2:   clamp(2rem, 1.1rem + 3.4vw, 3.6rem);
-  --t-h3:   clamp(1.15rem, 1rem + .7vw, 1.5rem);
-  --t-body: clamp(1rem, .96rem + .24vw, 1.15rem);
-  --t-sm:   .9375rem;
+  --t-hero: clamp(2.35rem, 1.1rem + 5vw, 4.4rem);
+  --t-h2:   clamp(1.7rem, 1.1rem + 2.2vw, 2.7rem);
+  --t-h3:   clamp(1.02rem, .95rem + .4vw, 1.2rem);
+  --t-body: clamp(.98rem, .95rem + .2vw, 1.075rem);
+  --t-sm:   .9rem;
   --t-xs:   .8125rem;
   --t-mono: .6875rem;
-  --ease: cubic-bezier(.23,1,.32,1);
+  --ease: cubic-bezier(.22,1,.36,1);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -62,445 +53,454 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 body{
-  margin:0;background:var(--deep);color:var(--on);
-  font-family:'Archivo',system-ui,-apple-system,sans-serif;
-  font-size:var(--t-body);line-height:1.62;
+  margin:0;background:var(--bg);color:var(--txt);
+  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  font-size:var(--t-body);line-height:1.6;letter-spacing:-.011em;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:3px}
+input,button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-h1,h2,h3{margin:0;font-family:'Outfit',system-ui,sans-serif;text-wrap:balance}
-h1{font-size:var(--t-hero);line-height:.93;letter-spacing:-.045em;font-weight:700}
-h2{font-size:var(--t-h2);line-height:1.02;letter-spacing:-.035em;font-weight:700}
-h3{font-size:var(--t-h3);line-height:1.22;letter-spacing:-.018em;font-weight:600}
+/* Tipografia sobria: display en peso medio, no negrita */
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-size:var(--t-hero);line-height:1.04;letter-spacing:-.036em;font-weight:600}
+h2{font-size:var(--t-h2);line-height:1.1;letter-spacing:-.03em;font-weight:600}
+h3{font-size:var(--t-h3);line-height:1.35;letter-spacing:-.018em;font-weight:600}
 p{margin:0;text-wrap:pretty}
-.lead{font-size:clamp(1.08rem,1rem+.5vw,1.35rem);line-height:1.52;color:var(--on-2)}
-.mono{font-family:ui-monospace,'SF Mono',monospace;font-size:var(--t-mono);
-      text-transform:uppercase;letter-spacing:.16em;font-weight:500}
-.eyebrow{display:block;margin-bottom:1.4rem;color:var(--on-3)}
-.hl{color:var(--red)}
-.measure{max-width:56ch}
+.lead{font-size:clamp(1rem,.96rem+.35vw,1.2rem);line-height:1.6;color:var(--txt-2);font-weight:400}
+.mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-mono);
+      text-transform:uppercase;letter-spacing:.14em;font-weight:500;color:var(--txt-3)}
+.hl{color:var(--accent)}
+.q{border-bottom:1px dotted rgba(240,68,56,.55);cursor:help}
 
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
 section{padding-block:var(--pad)}
 
-/* Zonas claras */
-.light{background:var(--paper);color:var(--ink)}
-.light h2,.light h3{color:var(--ink)}
-.light .lead{color:var(--ink-2)}
-.light .eyebrow{color:var(--ink-3)}
-.bright{background:var(--indigo);color:var(--on)}
-
-/* Dato por confirmar — discreto, no chillón */
-.q{border-bottom:1.5px dotted rgba(255,59,48,.65);cursor:help}
-.light .q{border-bottom-color:rgba(224,36,25,.5)}
-
-/* ---------- NAV ---------- */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:60;
-       background:rgba(20,15,61,.86);backdrop-filter:saturate(180%) blur(16px);
-       border-bottom:1px solid var(--line)}
-nav.wrap{display:flex;align-items:center;gap:1rem;min-height:76px}
+/* ---------- NAV: DOS NIVELES ---------- */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:70;
+        background:rgba(9,9,11,.82);backdrop-filter:saturate(180%) blur(20px);
+        border-bottom:1px solid var(--line)}
+.nav1{display:flex;align-items:center;gap:1rem;min-height:62px}
 .logo{display:flex;flex-direction:column;line-height:1;flex:none}
-.logo i{font-style:normal;font-size:clamp(.7rem,.58rem+.42vw,.85rem);letter-spacing:.12em;
-        text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:5px}
-.logo b{font-family:'Outfit',sans-serif;font-size:clamp(1.5rem,1.2rem+1.2vw,2rem);
-        font-weight:700;letter-spacing:-.04em;color:#fff;line-height:.92}
-.navlinks{display:none;gap:1.9rem;margin-left:auto;align-items:center}
-.navlinks a{font-size:var(--t-sm);color:var(--on-2);font-weight:500;
-            transition:color .2s var(--ease)}
-.navlinks a:hover{color:#fff}
-@media(min-width:1000px){.navlinks{display:flex}}
-.navcta{margin-left:auto}
-@media(min-width:1000px){.navcta{margin-left:2rem}}
-.burger{margin-left:auto;width:44px;height:44px;flex:none;display:grid;place-items:center;
-        background:none;border:1px solid var(--line-2);border-radius:999px;color:#fff;cursor:pointer}
-@media(min-width:1000px){.burger{display:none}}
+.logo i{font-style:normal;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
+        color:var(--accent);font-weight:600;margin-bottom:4px}
+.logo b{font-size:1.22rem;font-weight:600;letter-spacing:-.035em;color:#fff;line-height:.95}
+.nav1 .mid{display:none;gap:1.75rem;margin-inline:auto;align-items:center}
+.nav1 .mid a{font-size:var(--t-sm);color:var(--txt-2);font-weight:500;transition:color .18s var(--ease)}
+.nav1 .mid a:hover{color:#fff}
+@media(min-width:940px){.nav1 .mid{display:flex}}
+.nav1 .end{display:flex;align-items:center;gap:.6rem;margin-left:auto}
+@media(min-width:940px){.nav1 .end{margin-left:0}}
+.tel{display:none;font-size:var(--t-sm);color:var(--txt-2)}
+.tel:hover{color:#fff}
+@media(min-width:700px){.tel{display:inline}}
 
-/* ---------- BOTONES (pill) ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-     padding:.95rem 1.7rem;border-radius:999px;font-weight:600;font-size:var(--t-sm);
-     letter-spacing:-.01em;border:1.5px solid transparent;min-height:50px;
-     font-family:'Outfit',sans-serif;
-     transition:background-color .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease)}
-.btn svg{width:16px;height:16px;flex:none}
-.btn-primary{background:var(--red);color:#fff}
-.btn-primary:hover{background:var(--red-d)}
-.btn-line{background:transparent;color:#fff;border-color:var(--line-2)}
-.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-.light .btn-line{color:var(--ink);border-color:var(--line-lt)}
-.light .btn-line:hover{border-color:var(--ink);background:rgba(0,0,0,.04)}
-.btn-white{background:#fff;color:var(--deep)}
-.btn-white:hover{background:var(--on-2)}
-.btn-sm{padding:.62rem 1.25rem;min-height:42px;font-size:var(--t-xs)}
+/* Segunda barra: categorias de producto */
+.nav2{border-top:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.nav2::-webkit-scrollbar{display:none}
+.nav2 .inner{display:flex;gap:.3rem;min-height:48px;align-items:center;
+             max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);
+             white-space:nowrap}
+.nav2 a{font-size:var(--t-sm);color:var(--txt-3);font-weight:500;padding:.45rem .8rem;
+        border-radius:8px;transition:color .18s var(--ease),background-color .18s var(--ease)}
+.nav2 a:hover{color:#fff;background:var(--surf-2)}
+.nav2 a.on{color:#fff;background:var(--surf-2)}
+
+.burger{width:40px;height:40px;flex:none;display:grid;place-items:center;
+        background:none;border:1px solid var(--line-2);border-radius:9px;color:#fff;cursor:pointer}
+@media(min-width:940px){.burger{display:none}}
+
+/* ---------- BOTONES ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+     padding:.7rem 1.25rem;border-radius:999px;font-weight:600;font-size:var(--t-sm);
+     letter-spacing:-.012em;border:1px solid transparent;min-height:42px;
+     transition:background-color .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
+.btn svg{width:15px;height:15px;flex:none}
+.btn-white{background:#fff;color:#09090B}
+.btn-white:hover{background:var(--txt-2)}
+.btn-red{background:var(--accent);color:#fff}
+.btn-red:hover{background:var(--accent-d)}
+.btn-line{background:transparent;color:var(--txt);border-color:var(--line-3)}
+.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.05)}
+.btn-lg{padding:.9rem 1.7rem;min-height:50px;font-size:1rem}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;text-align:center;overflow:hidden;
-      padding-block:clamp(3.5rem,8vw,6.5rem) 0}
-.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(70% 55% at 50% 0%, rgba(107,92,255,.34), transparent 70%)}
+.hero{text-align:center;padding-block:clamp(3.5rem,8vw,6.5rem) clamp(2.5rem,5vw,4rem);
+      position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(56% 42% at 50% -6%, rgba(255,255,255,.07), transparent 72%)}
 .hero .wrap{position:relative;z-index:1}
-.hero h1{margin-bottom:1.8rem}
-/* El gesto: tachar lo que NO son */
-.strike{position:relative;display:inline-block;color:var(--on-3);white-space:nowrap}
-.strike::after{content:"";position:absolute;left:-.04em;right:-.04em;top:52%;
-  height:clamp(4px,.055em,11px);background:var(--red);border-radius:2px;transform:rotate(-1.4deg)}
-.hero .lead{margin:0 auto 2.4rem;max-width:44rem}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-bottom:3.5rem}
-.hero-cta .btn{flex:1 1 15rem}
-@media(min-width:560px){.hero-cta .btn{flex:0 0 auto}}
+.hero h1{max-width:20ch;margin:0 auto 1.4rem}
+.hero .lead{max-width:44ch;margin:0 auto 2.4rem}
 
-/* La pieza flotante, como el portátil de la referencia */
-.showcase{position:relative;max-width:64rem;margin-inline:auto;
-          border-radius:20px 20px 0 0;overflow:hidden;
-          border:1px solid var(--line-2);border-bottom:0;
-          background:linear-gradient(160deg,#2B2470,#171243);
-          box-shadow:0 -1px 0 rgba(255,255,255,.14) inset, 0 -40px 90px -30px rgba(107,92,255,.45)}
-.showcase img{width:100%;aspect-ratio:16/8;object-fit:cover;opacity:.94}
-.showcase-bar{display:flex;align-items:center;gap:.5rem;padding:.85rem 1.1rem;
-              border-bottom:1px solid var(--line);background:rgba(0,0,0,.22)}
-.showcase-bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2);flex:none}
-.showcase-bar span{margin-left:.6rem;font-size:var(--t-mono);color:var(--on-4);
-                   font-family:ui-monospace,monospace;letter-spacing:.1em}
+/* Buscador — el corazon del "que encuentre todo" */
+.finder{max-width:34rem;margin:0 auto}
+.finder-box{display:flex;align-items:center;gap:.65rem;background:var(--surf);
+            border:1px solid var(--line-2);border-radius:999px;padding:.35rem .4rem .35rem 1.1rem;
+            transition:border-color .2s var(--ease)}
+.finder-box:focus-within{border-color:var(--line-3)}
+.finder-box svg{width:17px;height:17px;color:var(--txt-3);flex:none}
+.finder-box input{flex:1;background:none;border:0;outline:none;min-width:0;
+                  font-size:var(--t-sm);padding-block:.55rem}
+.finder-box input::placeholder{color:var(--txt-4)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1rem}
+.chip{background:var(--surf);border:1px solid var(--line);border-radius:999px;
+      padding:.35rem .8rem;font-size:var(--t-xs);color:var(--txt-3);cursor:pointer;
+      transition:color .18s var(--ease),border-color .18s var(--ease)}
+.chip:hover{color:#fff;border-color:var(--line-3)}
 
-/* ---------- FRANJA DE CIFRAS ---------- */
-.stats{background:var(--deep-2);border-top:1px solid var(--line)}
+/* ---------- CATÁLOGO ---------- */
+.cat-head{display:flex;align-items:baseline;justify-content:space-between;
+          gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.count{font-size:var(--t-xs);color:var(--txt-4)}
+.grid{display:grid;gap:1rem}
+@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+.card{display:flex;flex-direction:column;background:var(--surf);border:1px solid var(--line);
+      border-radius:14px;overflow:hidden;
+      transition:border-color .22s var(--ease),background-color .22s var(--ease)}
+@media(hover:hover){.card:hover{border-color:var(--line-3);background:var(--surf-2)}}
+.card[hidden]{display:none}
+.thumb{position:relative;overflow:hidden;background:var(--surf-3)}
+.thumb img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .5s var(--ease)}
+@media(hover:hover){.card:hover .thumb img{transform:scale(1.035)}}
+.tag{position:absolute;top:.7rem;left:.7rem;background:rgba(9,9,11,.78);
+     backdrop-filter:blur(8px);border:1px solid var(--line-2);border-radius:7px;
+     padding:.25rem .55rem;font-size:.6875rem;color:var(--txt-2);font-weight:500}
+.card-body{padding:1.1rem 1.2rem 1.25rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.card p{font-size:var(--t-xs);color:var(--txt-3);line-height:1.55}
+.card .spec{margin-top:.35rem;font-size:var(--t-xs);color:var(--txt-4)}
+.card .spec b{color:var(--txt-2);font-weight:600}
+.card .go{margin-top:auto;padding-top:.85rem;display:inline-flex;align-items:center;gap:.35rem;
+          font-size:var(--t-xs);font-weight:600;color:var(--txt-2)}
+.card .go svg{width:13px;height:13px;transition:transform .2s var(--ease)}
+@media(hover:hover){.card:hover .go{color:#fff}.card:hover .go svg{transform:translateX(3px)}}
+.empty{text-align:center;padding:3rem 1rem;color:var(--txt-3);font-size:var(--t-sm)}
+
+/* ---------- CIFRAS ---------- */
+.stats{border-block:1px solid var(--line);background:var(--bg-2)}
 .stats .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 1rem;
-             padding-block:clamp(2.5rem,5vw,3.5rem)}
-@media(min-width:820px){.stats .wrap{grid-template-columns:repeat(4,1fr)}}
-.stat b{display:block;font-family:'Outfit',sans-serif;
-        font-size:clamp(2rem,1.4rem+2vw,3.1rem);font-weight:700;
-        letter-spacing:-.045em;line-height:1;margin-bottom:.5rem;color:#fff}
-.stat span{font-size:var(--t-xs);color:var(--on-3);line-height:1.4;display:block}
-
-/* ---------- ENCABEZADOS DE SECCIÓN ---------- */
-.head{max-width:44rem;margin-bottom:clamp(2.5rem,5vw,4rem)}
-.head.center{margin-inline:auto;text-align:center}
-.head p{margin-top:1.1rem}
-
-/* ---------- PRODUCTOS ---------- */
-.grid{display:grid;gap:1.25rem}
-@media(min-width:660px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{display:flex;flex-direction:column;background:var(--white);
-      border:1px solid var(--line-lt);border-radius:18px;overflow:hidden;
-      transition:border-color .22s var(--ease),transform .22s var(--ease)}
-@media(hover:hover){.card:hover{border-color:#C4C0E4;transform:translateY(-4px)}}
-.card-img{background:linear-gradient(160deg,#20194F,#12102E);overflow:hidden}
-.card-img img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .5s var(--ease)}
-@media(hover:hover){.card:hover .card-img img{transform:scale(1.04)}}
-.card-body{padding:1.5rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
-.card h3{color:var(--ink)}
-.card p{font-size:var(--t-sm);color:var(--ink-2);line-height:1.55}
-.card .meta{font-size:var(--t-xs);color:var(--ink-3);padding-top:.3rem}
-.card .meta b{color:var(--ink);font-weight:600}
-.card .go{margin-top:auto;padding-top:.9rem;display:inline-flex;align-items:center;gap:.4rem;
-          font-size:var(--t-xs);font-weight:700;color:var(--red-d);font-family:'Outfit',sans-serif}
-.card .go svg{width:14px;height:14px;transition:transform .2s var(--ease)}
-@media(hover:hover){.card:hover .go svg{transform:translateX(4px)}}
-
-/* ---------- COLUMNAS DE VALOR ---------- */
-.cols{display:grid;gap:2.5rem}
-@media(min-width:860px){.cols{grid-template-columns:repeat(3,1fr);gap:3rem}}
-.col .ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
-          background:rgba(255,255,255,.12);border:1px solid var(--line-2);margin-bottom:1.3rem}
-.col .ico svg{width:21px;height:21px;color:#fff}
-.col h3{margin-bottom:.7rem;color:#fff}
-.col p{font-size:var(--t-sm);color:var(--on-2);line-height:1.62}
+             padding-block:clamp(2.25rem,4vw,3rem)}
+@media(min-width:800px){.stats .wrap{grid-template-columns:repeat(4,1fr)}}
+.stat b{display:block;font-size:clamp(1.7rem,1.3rem+1.6vw,2.5rem);font-weight:600;
+        letter-spacing:-.04em;line-height:1;margin-bottom:.45rem}
+.stat span{font-size:var(--t-xs);color:var(--txt-3);line-height:1.4;display:block}
 
 /* ---------- PROCESO ---------- */
-.flow{display:grid;gap:0;border-top:1px solid var(--line-lt)}
-@media(min-width:900px){.flow{grid-template-columns:repeat(5,1fr);border-top:0}}
-.fstep{padding:1.6rem 0;border-bottom:1px solid var(--line-lt)}
-@media(min-width:900px){.fstep{padding:0 1.5rem 0 0;border-bottom:0;border-top:2px solid var(--line-lt)}
-  .fstep:first-child{border-top-color:var(--red)}}
-.fstep .n{display:block;font-family:ui-monospace,monospace;font-size:var(--t-mono);
-          letter-spacing:.16em;color:var(--ink-3);margin-bottom:.8rem}
-@media(min-width:900px){.fstep .n{margin-top:1.2rem}}
-.fstep h3{font-size:1.05rem;margin-bottom:.45rem}
-.fstep p{font-size:var(--t-xs);color:var(--ink-3);line-height:1.55;margin-bottom:.8rem}
-.fstep .t{display:inline-block;font-family:ui-monospace,monospace;font-size:var(--t-mono);
-          letter-spacing:.1em;color:var(--red-d);font-weight:600}
+.head{max-width:40rem;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+.head.center{margin-inline:auto;text-align:center}
+.head p{margin-top:.9rem}
+.flow{display:grid;gap:0}
+@media(min-width:900px){.flow{grid-template-columns:repeat(5,1fr);gap:1.5rem}}
+.fstep{padding-block:1.35rem;border-top:1px solid var(--line)}
+.fstep:first-child{border-top-color:var(--line-3)}
+.fstep .n{display:block;margin-bottom:.75rem}
+.fstep h3{margin-bottom:.4rem;font-size:1rem}
+.fstep p{font-size:var(--t-xs);color:var(--txt-3);line-height:1.55;margin-bottom:.7rem}
+.fstep .t{font-size:var(--t-mono);font-family:ui-monospace,monospace;letter-spacing:.1em;
+          color:var(--txt);font-weight:600}
 
-/* ---------- CITA ---------- */
-.pull{max-width:52rem;margin-inline:auto;text-align:center}
-.pull q{font-family:'Outfit',sans-serif;font-size:clamp(1.45rem,1rem+2vw,2.4rem);
-        line-height:1.2;letter-spacing:-.03em;font-weight:600;color:#fff;quotes:"«" "»"}
-.pull footer{margin-top:1.8rem;font-size:var(--t-xs);color:var(--on-3)}
+/* ---------- TRES RAZONES ---------- */
+.cols{display:grid;gap:1rem}
+@media(min-width:880px){.cols{grid-template-columns:repeat(3,1fr)}}
+.col{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:1.6rem}
+.col .ico{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;
+          background:var(--surf-3);margin-bottom:1.1rem}
+.col .ico svg{width:18px;height:18px;color:var(--txt)}
+.col h3{margin-bottom:.55rem}
+.col p{font-size:var(--t-sm);color:var(--txt-3);line-height:1.6}
 
 /* ---------- FAQ ---------- */
-.faq{max-width:48rem;margin-inline:auto}
-.faq details{border-bottom:1px solid var(--line-lt)}
-.faq summary{padding-block:1.35rem;cursor:pointer;list-style:none;display:flex;
-             justify-content:space-between;gap:1rem;align-items:center;min-height:52px;
-             font-family:'Outfit',sans-serif;font-weight:600;font-size:1.02rem;
-             letter-spacing:-.015em;color:var(--ink)}
+.faq{max-width:46rem;margin-inline:auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{padding-block:1.2rem;cursor:pointer;list-style:none;display:flex;
+             justify-content:space-between;gap:1rem;align-items:center;min-height:50px;
+             font-weight:600;font-size:var(--t-sm);letter-spacing:-.016em}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";width:12px;height:12px;flex:none;
-  border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);
-  transform:rotate(45deg);margin-top:-5px;transition:transform .25s var(--ease)}
-.faq details[open] summary::after{transform:rotate(-135deg);margin-top:3px}
-.faq .a{padding-bottom:1.5rem;font-size:var(--t-sm);color:var(--ink-2);
-        line-height:1.68;max-width:58ch}
+.faq summary::after{content:"";width:10px;height:10px;flex:none;
+  border-right:1.5px solid var(--txt-3);border-bottom:1.5px solid var(--txt-3);
+  transform:rotate(45deg);margin-top:-4px;transition:transform .25s var(--ease)}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:2px}
+.faq .a{padding-bottom:1.35rem;font-size:var(--t-sm);color:var(--txt-2);
+        line-height:1.68;max-width:60ch}
 
 /* ---------- CTA ---------- */
-.cta{position:relative;overflow:hidden;text-align:center;background:var(--deep-2)}
-.cta::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(75% 110% at 50% 100%, rgba(107,92,255,.38), transparent 68%)}
+.cta{text-align:center;position:relative;overflow:hidden;
+     border-top:1px solid var(--line);background:var(--bg-2)}
+.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 90% at 50% 100%, rgba(255,255,255,.06), transparent 70%)}
 .cta .wrap{position:relative;z-index:1}
-.cta h2{margin-bottom:1.3rem}
-.cta .lead{max-width:38rem;margin:0 auto 2.4rem}
-.cta .note{margin-top:1.6rem;font-size:var(--t-xs);color:var(--on-3)}
+.cta h2{margin-bottom:1.1rem}
+.cta .lead{max-width:38ch;margin:0 auto 2.2rem}
+.cta .note{margin-top:1.4rem;font-size:var(--t-xs);color:var(--txt-4)}
 
 /* ---------- FLOTANTE ---------- */
 .float{position:fixed;right:1rem;z-index:80;bottom:calc(1rem + env(safe-area-inset-bottom,0px));
-       display:inline-flex;align-items:center;gap:.55rem;background:var(--wa);color:#07301A;
-       font-weight:700;font-size:var(--t-sm);padding:.85rem 1.2rem;border-radius:999px;
-       font-family:'Outfit',sans-serif;
-       box-shadow:0 14px 34px -10px rgba(0,0,0,.6);transition:background-color .2s var(--ease)}
+       display:inline-flex;align-items:center;gap:.5rem;background:var(--wa);color:#06301A;
+       font-weight:600;font-size:var(--t-sm);padding:.8rem 1.15rem;border-radius:999px;
+       box-shadow:0 12px 30px -10px rgba(0,0,0,.7);transition:background-color .2s var(--ease)}
 .float:hover{background:#3BE87D}
-.float svg{width:21px;height:21px;flex:none}
+.float svg{width:20px;height:20px;flex:none}
 .float span{display:none}
 @media(min-width:560px){.float span{display:inline}}
 
 /* ---------- FOOTER ---------- */
-footer{background:#0D0A2A;border-top:1px solid var(--line);color:var(--on-3);
-       padding-block:4.5rem 2rem;font-size:var(--t-sm)}
-.fgrid{display:grid;gap:2.75rem}
+footer{border-top:1px solid var(--line);padding-block:3.5rem 1.75rem;
+       color:var(--txt-3);font-size:var(--t-sm)}
+.notice{background:var(--surf);border:1px solid var(--line-2);border-radius:12px;
+        padding:.95rem 1.15rem;margin-bottom:2.75rem;font-size:var(--t-xs);
+        color:var(--txt-2);line-height:1.6}
+.notice b{color:var(--accent)}
+.fgrid{display:grid;gap:2.5rem}
 @media(min-width:700px){.fgrid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1020px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1.3fr}}
-footer h4{color:var(--on-4);font-family:ui-monospace,monospace;font-size:var(--t-mono);
-          text-transform:uppercase;letter-spacing:.16em;font-weight:500;margin:0 0 1.2rem}
-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.65rem}
+footer h4{color:var(--txt-4);font-family:ui-monospace,monospace;font-size:var(--t-mono);
+          text-transform:uppercase;letter-spacing:.14em;font-weight:500;margin:0 0 1.1rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
 footer li{font-size:var(--t-xs)}
 footer a:hover{color:#fff}
 .legal{font-size:var(--t-xs);line-height:1.85}
-.legal b{color:var(--on-2);font-weight:600}
-.fbot{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);
-      display:flex;flex-wrap:wrap;gap:.7rem 1.6rem;font-size:.6875rem;color:var(--on-4)}
-.disclaimer{background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);
-            border-radius:12px;padding:1rem 1.2rem;margin-bottom:2.5rem;
-            font-size:var(--t-xs);color:var(--on-2);line-height:1.6}
-.disclaimer b{color:#FF8A82}
+.legal b{color:var(--txt-2);font-weight:600}
+.fbot{margin-top:2.75rem;padding-top:1.5rem;border-top:1px solid var(--line);
+      display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;font-size:.6875rem;color:var(--txt-4)}
 </style>
 
 </head>
 <body>
 <!-- NAV -->
-<header>
-  <nav class="wrap" aria-label="Principal">
+<div class="topbar">
+  <nav class="wrap nav1" aria-label="Principal">
     <a href="#" class="logo"><i>Marquillas y clisés</i><b>Mitchell</b></a>
-    <div class="navlinks">
-      <a href="#fabricamos">Qué fabricamos</a>
-      <a href="#diferencia">La diferencia</a>
+    <div class="mid">
+      <a href="#catalogo">Qué fabricamos</a>
       <a href="#proceso">Cómo trabajamos</a>
+      <a href="#razones">La fábrica</a>
       <a href="#preguntas">Preguntas</a>
     </div>
-    <a class="btn btn-primary btn-sm navcta" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar." target="_blank" rel="noopener">Cotizar</a>
-    <button class="burger" aria-label="Abrir menú"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <div class="end">
+      <a class="tel" href="tel:+576013660319">(601) 366 0319</a>
+      <a class="btn btn-white" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar." target="_blank" rel="noopener">Cotizar</a>
+      <button class="burger" aria-label="Abrir menú"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
   </nav>
-</header>
+  <div class="nav2">
+    <div class="inner">
+      <a href="#catalogo" class="on" data-f="">Todo</a>
+      <a href="#catalogo" data-f="marquillas">Marquillas</a>
+      <a href="#catalogo" data-f="clises">Clisés</a>
+      <a href="#catalogo" data-f="pvc">Apliques en PVC</a>
+      <a href="#catalogo" data-f="herrajes">Herrajes</a>
+      <a href="#catalogo" data-f="publicitario">Publicitario</a>
+      <a href="#catalogo" data-f="calzado">Calzado</a>
+    </div>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-    <span class="mono eyebrow">Fábrica propia · Barrio Restrepo, Bogotá · <span class="q" title="Confirmar: el sitio actual dice 17 años">Desde 2001</span></span>
-    <h1><span class="strike">Proveedor.</span><br>Fabricante.</h1>
-    <p class="lead">Un proveedor recibe tu pedido y lo manda a producir. Nosotros tenemos los telares. Marquillas tejidas, clisés, apliques en PVC, herrajes: si se le puede poner a una prenda, sale de nuestra planta.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar.%20Necesito%3A" target="_blank" rel="noopener">Cotizar por WhatsApp
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
-      </a>
-      <a class="btn btn-line" href="#fabricamos">Ver qué fabricamos</a>
+    <h1>Marquillas, clisés y apliques fabricados en Bogotá</h1>
+    <p class="lead"><span class="q" title="Confirmar: el sitio actual dice 17 años">Veinticinco años</span> produciendo para marcas de ropa y calzado. Muestra física en tus manos antes de que arranque cualquier lote.</p>
+
+    <div class="finder">
+      <label class="finder-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Busca lo que necesitas fabricar…" autocomplete="off" aria-label="Buscar producto">
+      </label>
+      <div class="chips">
+        <button class="chip" data-s="tejida">Marquilla tejida</button>
+        <button class="chip" data-s="clisé">Clisé</button>
+        <button class="chip" data-s="3d">Marquilla 3D</button>
+        <button class="chip" data-s="herraje">Herrajes</button>
+        <button class="chip" data-s="llavero">Llaveros</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" style="padding-top:0">
+  <div class="wrap">
+    <div class="cat-head">
+      <h2 style="font-size:1.05rem;font-weight:600">Catálogo de producción</h2>
+      <span class="count" id="count">14 líneas</span>
     </div>
 
-    <div class="showcase">
-      <div class="showcase-bar"><i></i><i></i><i></i><span>producción · lote 4.800 u · pantone aprobado</span></div>
-      <img src="img/hero-900.webp" srcset="img/hero-480.webp 480w, img/hero-900.webp 900w" sizes="(max-width:1024px) 100vw, 1024px" alt="Marquillas tejidas terminadas en la planta de Mitchell" fetchpriority="high">
+    <div class="grid" id="grid">
+
+      <a class="card" data-k="marquillas tejida damasco satén taffeta ropa etiqueta" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20TEJIDA." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="img/tejida-900.webp" srcset="img/tejida-480.webp 480w, img/tejida-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla tejida" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Marquilla tejida</h3>
+          <p>Damasco, satén o taffeta, hasta ocho colores. La que aguanta lavandería sin perder tono.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · muestra en <span class="q">3 días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="marquillas impresa satén nylon algodón ropa" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20IMPRESA." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="img/pvc-900.webp" srcset="img/pvc-480.webp 480w, img/pvc-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla impresa" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Marquilla impresa</h3>
+          <p>Satén, nylon y algodón. Para tallaje, composición e instrucciones de cuidado.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="marquillas 3d relieve pvc flexible molde" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%203D." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="img/3d-900.webp" srcset="img/3d-480.webp 480w, img/3d-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla 3D" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Marquilla 3D</h3>
+          <p>Alto relieve en PVC flexible. El molde se hace una vez y queda para los pedidos siguientes.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · molde <span class="q">por confirmar</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="clises clisé fotograbado magnesio bronce repujar estampar" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20un%20CLIS%C3%89." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Clisés</span><img src="img/clise-900.webp" srcset="img/clise-480.webp 480w, img/clise-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Clisé en fotograbado" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Clisés en fotograbado</h3>
+          <p>Magnesio y bronce, grabados a la profundidad que pida el material que vas a marcar.</p>
+          <p class="spec"><b>Molde desde <span class="q">por confirmar</span></b></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="herrajes metal níquel dorado envejecido hebilla remache placa" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20HERRAJES." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Herrajes</span><img src="img/herraje-900.webp" srcset="img/herraje-480.webp 480w, img/herraje-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Herrajes personalizados" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Herrajes personalizados</h3>
+          <p>Níquel, dorado y envejecido. Hebillas, remaches y placas con el logo de tu marca.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="pvc calzado aplique capellada suela babucha zapato bebé" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20APLIQUES%20EN%20PVC." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Apliques en PVC</span><img src="img/llavero-900.webp" srcset="img/llavero-480.webp 480w, img/llavero-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Apliques y capelladas en PVC" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Apliques y capelladas en PVC</h3>
+          <p>Rígido o flexible, para calzado, chaquetas y morrales. También suelas para zapato de bebé.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="publicitario llavero manilla caucho sintético feria activación" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20LLAVEROS%20Y%20MANILLAS." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Publicitario</span><img src="img/hero-900.webp" srcset="img/hero-480.webp 480w, img/hero-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Llaveros y manillas publicitarias" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Llaveros y manillas</h3>
+          <p>PVC, caucho y sintético. Lo que se reparte en feria, con el mismo molde de tu marquilla.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="marquillas lavable nylon tallaje cuidado ropa interior" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20LAVABLE%20EN%20NYLON." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="img/tejida-900.webp" srcset="img/tejida-480.webp 480w, img/tejida-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla lavable en nylon" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Marquilla lavable en nylon</h3>
+          <p>Suave al contacto, para ropa interior y prenda infantil. No raspa la piel.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="marquillas térmica termoadhesiva sin costura plancha" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20T%C3%89RMICA." target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="img/3d-900.webp" srcset="img/3d-480.webp 480w, img/3d-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla térmica termoadhesiva" loading="lazy"></div>
+        <div class="card-body">
+          <h3>Marquilla térmica</h3>
+          <p>Termoadhesiva, se aplica con plancha. Para prenda deportiva donde no va costura.</p>
+          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
+          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
     </div>
+    <p class="empty" id="empty" hidden>No encontramos esa línea. <a href="https://wa.me/573123794395?text=Hola%2C%20necesito%20un%20aplique%20especial." target="_blank" rel="noopener" style="color:var(--accent);font-weight:600">Cuéntanos qué necesitas →</a></p>
+
+    <p style="margin-top:2rem;font-size:var(--t-sm);color:var(--txt-3)">
+      También fabricamos marquilla en razo y falla, stickers, repujes en sintético y accesorios a medida.
+      <a href="https://wa.me/573123794395?text=Hola%2C%20necesito%20un%20aplique%20especial." target="_blank" rel="noopener" style="color:var(--txt);font-weight:600;border-bottom:1px solid var(--line-3)">Pregúntanos por el tuyo</a>
+    </p>
   </div>
 </section>
 
 <!-- CIFRAS -->
 <div class="stats">
   <div class="wrap">
-    <div class="stat"><b><span class="q" title="Confirmar: el sitio actual dice 17 años">25</span></b><span>años fabricando en Bogotá</span></div>
+    <div class="stat"><b class="q">25</b><span>años fabricando en Bogotá</span></div>
     <div class="stat"><b>14</b><span>líneas de producto</span></div>
-    <div class="stat"><b class="q" title="Dato por confirmar con el cliente">+400</b><span>marcas atendidas</span></div>
-    <div class="stat"><b class="q" title="Dato por confirmar con el cliente">24 h</b><span>para responder una cotización</span></div>
+    <div class="stat"><b class="q">+400</b><span>marcas atendidas</span></div>
+    <div class="stat"><b class="q">24 h</b><span>para responder tu cotización</span></div>
   </div>
 </div>
 
-<!-- LA DIFERENCIA -->
-<section id="diferencia">
+<!-- RAZONES -->
+<section id="razones">
   <div class="wrap">
     <div class="head">
-      <span class="mono eyebrow">La diferencia</span>
-      <h2>Quien no tiene la máquina, no puede prometer la fecha</h2>
-      <p class="lead">Es la razón por la que un pedido llega tarde y nadie te avisa hasta que ya es tarde. El intermediario tampoco sabe: está esperando, igual que tú.</p>
+      <span class="mono">La fábrica</span>
+      <h2 style="margin-top:1rem">Quien no tiene la máquina no puede prometer la fecha</h2>
+      <p class="lead">Un intermediario recibe tu pedido y lo manda a producir. Cuando algo sale mal, se entera cuando tú: tarde.</p>
     </div>
-
     <div class="cols">
       <div class="col">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-7h6v7"/></svg></div>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-7h6v7"/></svg></div>
         <h3>La planta es nuestra</h3>
-        <p>Telares, troqueles y fotograbado en el Restrepo. Cuando escribes pidiendo una cotización, contesta alguien que está a veinte metros de la máquina que va a hacer tu pedido.</p>
+        <p>Telares, troqueles y fotograbado en el Restrepo. Quien te responde la cotización está a veinte metros de la máquina que va a hacer tu pedido.</p>
       </div>
       <div class="col">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7 9 18l-5-5"/></svg></div>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 7 9 18l-5-5"/></svg></div>
         <h3>Apruebas la muestra física</h3>
-        <p>Antes de producir un solo lote te mandamos la marquilla real. La lavas, la coses en la prenda, la revisas contra tu pantone. Si no es, no arrancamos.</p>
+        <p>La marquilla real en tus manos antes de producir. La lavas, la coses en la prenda, la comparas con tu pantone. Si no es, no arrancamos.</p>
       </div>
       <div class="col">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6l-8-3Z"/></svg></div>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 6v6c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6l-8-3Z"/></svg></div>
         <h3>Si el lote sale malo, lo reponemos</h3>
-        <p><span class="q" title="Definir la política exacta con el cliente">Repetimos las unidades defectuosas y asumimos el flete.</span> Un reproceso te cuesta más a ti que a nosotros, y eso lo sabemos desde hace veinticinco años.</p>
+        <p><span class="q" title="Definir la política exacta">Repetimos las unidades defectuosas y asumimos el flete.</span> Un reproceso te cuesta más a ti que a nosotros, y eso lo aprendimos hace mucho.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PRODUCTOS -->
-<section class="light" id="fabricamos">
-  <div class="wrap">
-    <div class="head">
-      <span class="mono eyebrow">Qué fabricamos</span>
-      <h2>Catorce líneas. Una sola planta.</h2>
-      <p class="lead">Marca de jeans, de calzado deportivo, de ropa infantil o de dotación: el aplique cambia, el proceso no. Toca cualquiera y te abre el chat con ese producto ya escrito.</p>
-    </div>
-
-    <div class="grid">
-      <a class="card" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20TEJIDA." target="_blank" rel="noopener">
-        <div class="card-img"><img src="img/tejida-900.webp" srcset="img/tejida-480.webp 480w, img/tejida-900.webp 900w" sizes="(max-width:660px) 92vw, (max-width:1000px) 46vw, 30vw" alt="Marquilla tejida a la medida" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Marquilla tejida</h3>
-          <p>Damasco, satén o taffeta, hasta ocho colores. La que aguanta lavado industrial sin que se le vaya el tono.</p>
-          <p class="meta"><b>Desde <span class="q">500 unidades</span></b> · muestra en <span class="q">3 días</span></p>
-          <span class="go">Cotizar esta línea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%203D." target="_blank" rel="noopener">
-        <div class="card-img"><img src="img/3d-900.webp" srcset="img/3d-480.webp 480w, img/3d-900.webp 900w" sizes="(max-width:660px) 92vw, (max-width:1000px) 46vw, 30vw" alt="Marquilla 3D en alto relieve" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Marquilla 3D</h3>
-          <p>Alto relieve en PVC flexible. El molde se hace una vez y queda tuyo para los pedidos que vengan.</p>
-          <p class="meta"><b>Desde <span class="q">500 unidades</span></b> · molde <span class="q">por confirmar</span></p>
-          <span class="go">Cotizar esta línea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20un%20CLIS%C3%89." target="_blank" rel="noopener">
-        <div class="card-img"><img src="img/clise-900.webp" srcset="img/clise-480.webp 480w, img/clise-900.webp 900w" sizes="(max-width:660px) 92vw, (max-width:1000px) 46vw, 30vw" alt="Clisé en fotograbado" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Clisés en fotograbado</h3>
-          <p>Magnesio y bronce, para repujar y estampar. Grabado a profundidad exacta según el material que vayas a marcar.</p>
-          <p class="meta"><b>Molde desde <span class="q">por confirmar</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar esta línea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20HERRAJES." target="_blank" rel="noopener">
-        <div class="card-img"><img src="img/herraje-900.webp" srcset="img/herraje-480.webp 480w, img/herraje-900.webp 900w" sizes="(max-width:660px) 92vw, (max-width:1000px) 46vw, 30vw" alt="Herrajes personalizados" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Herrajes personalizados</h3>
-          <p>Níquel, dorado, envejecido. Hebillas, remaches y placas con tu logo, del acabado que pida la colección.</p>
-          <p class="meta"><b>Desde <span class="q">500 unidades</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar esta línea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20APLIQUES%20EN%20PVC." target="_blank" rel="noopener">
-        <div class="card-img"><img src="img/pvc-900.webp" srcset="img/pvc-480.webp 480w, img/pvc-900.webp 900w" sizes="(max-width:660px) 92vw, (max-width:1000px) 46vw, 30vw" alt="Apliques en PVC" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Apliques en PVC</h3>
-          <p>Rígido o flexible. Capelladas y suelas para calzado, apliques para chaquetas y morrales.</p>
-          <p class="meta"><b>Desde <span class="q">500 unidades</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar esta línea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20LLAVEROS%20Y%20MANILLAS." target="_blank" rel="noopener">
-        <div class="card-img"><img src="img/llavero-900.webp" srcset="img/llavero-480.webp 480w, img/llavero-900.webp 900w" sizes="(max-width:660px) 92vw, (max-width:1000px) 46vw, 30vw" alt="Llaveros y manillas publicitarias" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Llaveros y manillas</h3>
-          <p>PVC, caucho y sintético. Lo que se reparte en feria y en activación de marca, con el mismo molde de la marquilla.</p>
-          <p class="meta"><b>Desde <span class="q">500 unidades</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar esta línea <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-    </div>
-
-    <p class="lead" style="margin-top:2.5rem;font-size:var(--t-sm)">
-      También hacemos marquilla impresa, lavable en nylon, térmica, en razo y falla, stickers y repujes en sintético.
-      <a href="https://wa.me/573123794395?text=Hola%2C%20necesito%20un%20aplique%20especial." target="_blank" rel="noopener" style="color:var(--red-d);font-weight:700">¿Lo tuyo es otra cosa? Cuéntanos →</a>
-    </p>
-  </div>
-</section>
-
-<!-- CITA -->
-<section class="bright">
-  <div class="wrap pull">
-    <q>La marquilla es lo último que se produce y lo primero que se ve. Por eso no puede ser lo que se retrasa.</q>
-    <footer class="mono">Manufacturas Mitchell · Bogotá</footer>
   </div>
 </section>
 
 <!-- PROCESO -->
-<section class="light" id="proceso">
+<section id="proceso" style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <span class="mono eyebrow">Cómo trabajamos</span>
-      <h2>Cinco pasos y todos tienen fecha</h2>
-      <p class="lead">Nada de formularios que nadie contesta. Todo arranca y termina por WhatsApp, con una persona al otro lado.</p>
+      <span class="mono">Cómo trabajamos</span>
+      <h2 style="margin-top:1rem">Cinco pasos y todos tienen fecha</h2>
+      <p class="lead">Todo arranca y termina por WhatsApp, con una persona al otro lado.</p>
     </div>
     <div class="flow">
-      <div class="fstep"><span class="n">Paso 01</span><h3>Mandas el arte</h3><p>AI, PDF, EPS o la foto de la marquilla que usas hoy. Si no tienes el archivo vectorizado, lo montamos nosotros.</p><span class="t">Mismo día</span></div>
-      <div class="fstep"><span class="n">Paso 02</span><h3>Cotizamos</h3><p>Precio por unidad para tres cantidades distintas, para que veas dónde te conviene el corte.</p><span class="t">24 horas</span></div>
-      <div class="fstep"><span class="n">Paso 03</span><h3>Apruebas la muestra</h3><p>La marquilla real en tus manos. La lavas y la coses antes de que produzcamos nada.</p><span class="t q">3 días</span></div>
-      <div class="fstep"><span class="n">Paso 04</span><h3>Producimos</h3><p>Te escribimos a mitad de producción. No tienes que llamar a preguntar cómo va.</p><span class="t q">8 días</span></div>
-      <div class="fstep"><span class="n">Paso 05</span><h3>Entregamos</h3><p>En Bogotá al día siguiente. Al resto del país con número de guía.</p><span class="t q">24 h / 2–4 días</span></div>
+      <div class="fstep"><span class="mono n">Paso 01</span><h3>Mandas el arte</h3><p>AI, PDF, EPS o la foto de la marquilla que usas hoy. Si no está vectorizado, lo montamos nosotros.</p><span class="t">Mismo día</span></div>
+      <div class="fstep"><span class="mono n">Paso 02</span><h3>Cotizamos</h3><p>Precio por unidad para tres cantidades, para que veas dónde te conviene el corte.</p><span class="t">24 horas</span></div>
+      <div class="fstep"><span class="mono n">Paso 03</span><h3>Apruebas la muestra</h3><p>La marquilla real en tus manos. La lavas y la coses antes de que produzcamos.</p><span class="t q">3 días</span></div>
+      <div class="fstep"><span class="mono n">Paso 04</span><h3>Producimos</h3><p>Te escribimos a mitad de producción. No tienes que llamar a preguntar.</p><span class="t q">8 días</span></div>
+      <div class="fstep"><span class="mono n">Paso 05</span><h3>Entregamos</h3><p>En Bogotá al día siguiente. Al resto del país con número de guía.</p><span class="t q">24 h / 2–4 días</span></div>
     </div>
   </div>
 </section>
 
 <!-- PREGUNTAS -->
-<section class="light" id="preguntas" style="padding-top:0">
+<section id="preguntas" style="padding-top:0">
   <div class="wrap">
     <div class="head center">
-      <span class="mono eyebrow">Preguntas frecuentes</span>
-      <h2>Lo que preguntan antes de mandar el arte</h2>
+      <span class="mono">Preguntas frecuentes</span>
+      <h2 style="margin-top:1rem">Lo que preguntan antes de mandar el arte</h2>
     </div>
     <div class="faq">
-      <details open>
-        <summary>¿Cuál es la cantidad mínima por referencia?</summary>
-        <div class="a"><span class="q">Quinientas unidades por referencia.</span> Si estás sacando una colección con varias referencias, se pueden combinar en un mismo pedido y el mínimo aplica al total.</div>
-      </details>
-      <details>
-        <summary>¿El molde se cobra cada vez que pido?</summary>
-        <div class="a">No. El molde o el clisé se paga una sola vez y queda registrado a nombre de tu marca. <span class="q">Los pedidos siguientes con ese mismo diseño no vuelven a pagarlo.</span></div>
-      </details>
-      <details>
-        <summary>¿Qué pasa si el color no queda igual al pantone?</summary>
-        <div class="a">Por eso existe la muestra física. La comparas contra tu pantone antes de que produzcamos, y si no coincide ajustamos el hilo sin costo. <span class="q">La tolerancia que manejamos está por confirmar con el cliente.</span></div>
-      </details>
-      <details>
-        <summary>¿Qué archivos reciben?</summary>
-        <div class="a">AI, EPS, PDF vectorizado y CDR. También PNG o JPG a 300 dpi si es lo único que tienes. <span class="q">Si el arte no está vectorizado, lo vectorizamos nosotros.</span></div>
-      </details>
-      <details>
-        <summary>¿La marquilla aguanta lavado industrial?</summary>
-        <div class="a">La tejida sí, y es la que recomendamos cuando la prenda va a lavandería. <span class="q">La impresa y la térmica tienen otro comportamiento; confirmar cuáles resisten cloro y secadora.</span></div>
-      </details>
-      <details>
-        <summary>¿Manejan crédito?</summary>
-        <div class="a"><span class="q">Formas de pago, anticipo y condiciones de crédito por confirmar con el cliente.</span></div>
-      </details>
-      <details>
-        <summary>¿Despachan fuera de Bogotá?</summary>
-        <div class="a"><span class="q">Sí, a todo el país, con número de guía. Quién asume el flete está por confirmar.</span></div>
-      </details>
+      <details open><summary>¿Cuál es la cantidad mínima por referencia?</summary><div class="a"><span class="q">Quinientas unidades por referencia.</span> Si sacas una colección con varias referencias se pueden combinar en un mismo pedido.</div></details>
+      <details><summary>¿El molde se cobra cada vez que pido?</summary><div class="a">No. Se paga una sola vez y queda a nombre de tu marca. <span class="q">Los pedidos siguientes con ese diseño no vuelven a pagarlo.</span></div></details>
+      <details><summary>¿Qué pasa si el color no queda igual al pantone?</summary><div class="a">Para eso está la muestra física: la comparas antes de que produzcamos y ajustamos el hilo sin costo. <span class="q">La tolerancia exacta está por confirmar.</span></div></details>
+      <details><summary>¿Qué archivos reciben?</summary><div class="a">AI, EPS, PDF vectorizado y CDR. También PNG o JPG a 300 dpi si es lo único que tienes. <span class="q">Si no está vectorizado, lo vectorizamos nosotros.</span></div></details>
+      <details><summary>¿La marquilla aguanta lavado industrial?</summary><div class="a">La tejida sí, y es la que recomendamos cuando la prenda va a lavandería. <span class="q">Confirmar cuáles resisten cloro y secadora.</span></div></details>
+      <details><summary>¿Manejan crédito?</summary><div class="a"><span class="q">Formas de pago, anticipo y condiciones de crédito por confirmar.</span></div></details>
+      <details><summary>¿Despachan fuera de Bogotá?</summary><div class="a"><span class="q">Sí, a todo el país con número de guía. Quién asume el flete está por confirmar.</span></div></details>
     </div>
   </div>
 </section>
@@ -509,8 +509,8 @@ footer a:hover{color:#fff}
 <section class="cta">
   <div class="wrap">
     <h2>Mándanos el arte y te cotizamos mañana</h2>
-    <p class="lead">Precio por unidad para tres cantidades, sin compromiso. Un mensaje de WhatsApp y ya está: no hay formularios ni portales.</p>
-    <a class="btn btn-white" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar.%20Mi%20marca%20es%3A" target="_blank" rel="noopener">
+    <p class="lead">Precio por unidad para tres cantidades, sin compromiso. Un mensaje y ya está.</p>
+    <a class="btn btn-white btn-lg" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar.%20Mi%20marca%20es%3A" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4-.3.3c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg>
       Escribir a 312 379 4395
     </a>
@@ -521,30 +521,27 @@ footer a:hover{color:#fff}
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
-    <div class="disclaimer">
-      <b>Vista previa para revisión.</b> Los datos subrayados en rojo punteado son ejemplos que Mitchell debe confirmar: mínimos de pedido, tiempos reales, costo del molde, política de reposición, años de operación y marcas que se pueden nombrar. Nada de eso está verificado todavía.
-    </div>
-
+    <div class="notice"><b>Vista previa para revisión.</b> Lo subrayado en rojo punteado son ejemplos por confirmar con Mitchell: mínimos, tiempos, costo del molde, política de reposición, años de operación y datos legales.</div>
     <div class="fgrid">
       <div>
-        <a href="#" class="logo" style="margin-bottom:1.4rem"><i>Marquillas y clisés</i><b>Mitchell</b></a>
+        <a href="#" class="logo" style="margin-bottom:1.2rem"><i>Marquillas y clisés</i><b>Mitchell</b></a>
         <p class="legal" style="max-width:21rem">Fábrica de marquillas, clisés, apliques en PVC y herrajes para la industria de la confección y el calzado.</p>
       </div>
       <div>
         <h4>Qué fabricamos</h4>
         <ul>
-          <li><a href="#fabricamos">Marquilla tejida</a></li>
-          <li><a href="#fabricamos">Marquilla 3D</a></li>
-          <li><a href="#fabricamos">Clisés en fotograbado</a></li>
-          <li><a href="#fabricamos">Apliques en PVC</a></li>
-          <li><a href="#fabricamos">Herrajes personalizados</a></li>
-          <li><a href="#fabricamos">Llaveros y manillas</a></li>
+          <li><a href="#catalogo">Marquilla tejida</a></li>
+          <li><a href="#catalogo">Marquilla impresa</a></li>
+          <li><a href="#catalogo">Marquilla 3D</a></li>
+          <li><a href="#catalogo">Clisés en fotograbado</a></li>
+          <li><a href="#catalogo">Apliques en PVC</a></li>
+          <li><a href="#catalogo">Herrajes y llaveros</a></li>
         </ul>
       </div>
       <div>
         <h4>La empresa</h4>
         <ul>
-          <li><a href="#diferencia">La diferencia</a></li>
+          <li><a href="#razones">La fábrica</a></li>
           <li><a href="#proceso">Cómo trabajamos</a></li>
           <li><a href="#preguntas">Preguntas frecuentes</a></li>
           <li><a href="https://wa.me/573123794395" target="_blank" rel="noopener">Cotizar</a></li>
@@ -564,7 +561,6 @@ footer a:hover{color:#fff}
         </p>
       </div>
     </div>
-
     <div class="fbot">
       <span>© 2026 Manufacturas Mitchell</span>
       <a href="#">Política de Tratamiento de Datos (Ley 1581 de 2012)</a>
@@ -577,6 +573,51 @@ footer a:hover{color:#fff}
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4-.3.3c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg>
   <span>Cotizar</span>
 </a>
+
+<script>
+(function(){
+  var input = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.nav2 a'));
+  var term = '', cat = '';
+
+  function norm(s){
+    return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+  function apply(){
+    var t = norm(term), c = norm(cat), shown = 0;
+    cards.forEach(function(card){
+      var k = norm(card.dataset.k + ' ' + card.textContent);
+      var ok = (!t || k.indexOf(t) !== -1) && (!c || k.indexOf(c) !== -1);
+      card.hidden = !ok;
+      if (ok) shown++;
+    });
+    count.textContent = shown + (shown === 1 ? ' línea' : ' líneas');
+    empty.hidden = shown !== 0;
+  }
+
+  input.addEventListener('input', function(){ term = input.value; apply(); });
+
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      input.value = chip.dataset.s; term = chip.dataset.s; apply();
+      document.getElementById('catalogo').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('on'); });
+      tab.classList.add('on');
+      cat = tab.dataset.f || '';
+      input.value = ''; term = '';
+      apply();
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
