@@ -1,5 +1,5 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["static/index-BDeiZurJ.js","static/sanity-DqWFaXvw.js","static/index2-D0WmDZJ1.js"])))=>i.map(i=>d[i]);
-import { o as operate, c as createOperatorSubscriber, d as distExports, u as useWorkspace, r as reactExports, j as jsxRuntimeExports, E as ErrorBoundary, e as SourceProvider, s as setActivePanes, f as useTranslation, g as structureLocaleNamespace, h as SerializeError, S as Stack, T as Text, i as Code, B as Box, k as generateHelpUrl, C as Card, b as Container, l as gt, n as useRouter, p as useRouterState, q as useStructureTool, t as useDocumentStore, v as isRecord$4, H as Heading, w as Button, x as SyncIcon, _ as __vitePreload, y as isEqual, z as isHotkey, A as useToast, D as useSchema, F as useTheme, G as _isCustomDocumentTypeDefinition, L as LoadingPane, P as PortalProvider, I as LOADING_PANE, J as StructureToolProvider, K as Pane, M as usePaneLayout, N as BackLink, O as PaneRouterContext, Q as Flex, R as map, U as v4, V as firstValueFrom, W as omit, X as ReplaySubject, Y as usePerspective, Z as useEditState, $ as useDocumentPreview, a0 as toString, a1 as ParameterizedLink, a2 as ReferenceChildLink, a3 as ChildLink, a4 as isObservable, a5 as from, a6 as switchMap, a7 as of, a8 as PaneHeader$1, a9 as PaneContent, aa as Translate, ab as WarningOutlineIcon, ac as PaneLayout, ad as publishReplay, ae as refCount, af as nanoid, ag as startWith, ah as scan, ai as NEVER, aj as distinctUntilChanged, ak as concat } from "./sanity-DqWFaXvw.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["static/index-BVfHrpLe.js","static/sanity-D_nH2OOZ.js","static/index2-Cc679RC7.js"])))=>i.map(i=>d[i]);
+import { o as operate, c as createOperatorSubscriber, d as distExports, u as useWorkspace, r as reactExports, j as jsxRuntimeExports, E as ErrorBoundary, e as SourceProvider, s as setActivePanes, f as useTranslation, g as structureLocaleNamespace, h as SerializeError, S as Stack, T as Text, i as Code, B as Box, k as generateHelpUrl, C as Card, b as Container, l as gt, n as useRouter, p as useRouterState, q as useStructureTool, t as useDocumentStore, v as isRecord$4, H as Heading, w as Button, x as SyncIcon, _ as __vitePreload, y as isEqual, z as isHotkey, A as useToast, D as useSchema, F as useTheme, G as _isCustomDocumentTypeDefinition, L as LoadingPane, P as PortalProvider, I as LOADING_PANE, J as StructureToolProvider, K as Pane, M as usePaneLayout, N as BackLink, O as PaneRouterContext, Q as Flex, R as map, U as v4, V as firstValueFrom, W as omit, X as ReplaySubject, Y as usePerspective, Z as useEditState, $ as useDocumentPreview, a0 as toString, a1 as ParameterizedLink, a2 as ReferenceChildLink, a3 as ChildLink, a4 as isObservable, a5 as from, a6 as switchMap, a7 as of, a8 as PaneHeader$1, a9 as PaneContent, aa as Translate, ab as WarningOutlineIcon, ac as PaneLayout, ad as publishReplay, ae as refCount, af as nanoid, ag as startWith, ah as scan, ai as NEVER, aj as distinctUntilChanged, ak as concat } from "./sanity-D_nH2OOZ.js";
 function pairwise() {
   return operate(function(source, subscriber) {
     var prev;
@@ -809,14 +809,14 @@ function UnknownPane(props) {
   ] }), $[9] = isSelected, $[10] = paneKey, $[11] = t2, $[12] = t3, $[13] = t4) : t4 = $[13], t4;
 }
 const paneMap = {
-  component: reactExports.lazy(() => __vitePreload(() => import("./index-BDeiZurJ.js"), true ? __vite__mapDeps([0,1]) : void 0)),
-  document: reactExports.lazy(() => __vitePreload(() => import("./sanity-DqWFaXvw.js").then((n) => n.az), true ? [] : void 0).then(function(n) {
+  component: reactExports.lazy(() => __vitePreload(() => import("./index-BVfHrpLe.js"), true ? __vite__mapDeps([0,1]) : void 0)),
+  document: reactExports.lazy(() => __vitePreload(() => import("./sanity-D_nH2OOZ.js").then((n) => n.az), true ? [] : void 0).then(function(n) {
     return n.pane;
   })),
-  documentList: reactExports.lazy(() => __vitePreload(() => import("./sanity-DqWFaXvw.js").then((n) => n.az), true ? [] : void 0).then(function(n) {
+  documentList: reactExports.lazy(() => __vitePreload(() => import("./sanity-D_nH2OOZ.js").then((n) => n.az), true ? [] : void 0).then(function(n) {
     return n.pane$1;
   })),
-  list: reactExports.lazy(() => __vitePreload(() => import("./index2-D0WmDZJ1.js"), true ? __vite__mapDeps([2,1]) : void 0))
+  list: reactExports.lazy(() => __vitePreload(() => import("./index2-Cc679RC7.js"), true ? __vite__mapDeps([2,1]) : void 0))
 }, StructureToolPane = reactExports.memo(function(props) {
   const $ = distExports.c(23), {
     active,

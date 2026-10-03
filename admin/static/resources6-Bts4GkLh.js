@@ -1,4 +1,4 @@
-import { a as defineLocalesResources } from "./sanity-DqWFaXvw.js";
+import { a as defineLocalesResources } from "./sanity-D_nH2OOZ.js";
 const structureLocaleStrings = defineLocalesResources("structure", {
   /** Label for the "Copy Document URL" document action */
   "action.copy-document-url.label": "Copy Document URL",

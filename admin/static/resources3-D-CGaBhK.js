@@ -1,4 +1,4 @@
-import { a as defineLocalesResources } from "./sanity-DqWFaXvw.js";
+import { a as defineLocalesResources } from "./sanity-D_nH2OOZ.js";
 const tasksLocaleStrings = defineLocalesResources("tasks", {
   /** The label for the create task action */
   "actions.create.text": "Create new task",

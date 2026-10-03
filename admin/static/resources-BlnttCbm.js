@@ -1,4 +1,4 @@
-import { a as defineLocalesResources } from "./sanity-DqWFaXvw.js";
+import { a as defineLocalesResources } from "./sanity-D_nH2OOZ.js";
 const commentsLocaleStrings = defineLocalesResources("comments", {
   /** The close comments button text */
   "close-pane-button-text": "Close comments",

@@ -1,4 +1,4 @@
-import { d as distExports, j as jsxRuntimeExports, C as Card, b as Container, S as Stack, T as Text, r as reactExports, H as Heading } from "./sanity-DqWFaXvw.js";
+import { d as distExports, j as jsxRuntimeExports, C as Card, b as Container, S as Stack, T as Text, r as reactExports, H as Heading } from "./sanity-D_nH2OOZ.js";
 const ERROR_TITLE = "Dev server stopped", ERROR_DESCRIPTION = "The development server has stopped. You may need to restart it to continue working.";
 class ViteDevServerStoppedError extends Error {
   constructor() {

@@ -1,4 +1,4 @@
-import { ao as distExports, ap as Refractor, j as jsxRuntimeExports } from "./sanity-DqWFaXvw.js";
+import { ao as distExports, ap as Refractor, j as jsxRuntimeExports } from "./sanity-D_nH2OOZ.js";
 function LazyRefractor(props) {
   const $ = distExports.c(13), {
     language: languageProp,

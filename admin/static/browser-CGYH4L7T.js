@@ -1,4 +1,4 @@
-import { an as getDefaultExportFromCjs } from "./sanity-DqWFaXvw.js";
+import { an as getDefaultExportFromCjs } from "./sanity-D_nH2OOZ.js";
 var eventsource$1 = { exports: {} };
 /** @license
  * eventsource.js

@@ -1,4 +1,4 @@
-import { d as distExports, r as reactExports, aq as useI18nText, ar as reactIsExports, j as jsxRuntimeExports, K as Pane, l as gt, q as useStructureTool, w as Button, as as ArrowLeftIcon, N as BackLink, a8 as PaneHeader$1, at as usePane, B as Box, au as PaneHeaderActions } from "./sanity-DqWFaXvw.js";
+import { d as distExports, r as reactExports, aq as useI18nText, ar as reactIsExports, j as jsxRuntimeExports, K as Pane, l as gt, q as useStructureTool, w as Button, as as ArrowLeftIcon, N as BackLink, a8 as PaneHeader$1, at as usePane, B as Box, au as PaneHeaderActions } from "./sanity-D_nH2OOZ.js";
 const Root = gt(Box)`
   position: relative;
 `;

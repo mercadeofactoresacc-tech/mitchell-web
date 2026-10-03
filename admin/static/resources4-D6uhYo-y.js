@@ -1,4 +1,4 @@
-import { a as defineLocalesResources } from "./sanity-DqWFaXvw.js";
+import { a as defineLocalesResources } from "./sanity-D_nH2OOZ.js";
 const canvasLocaleStrings = defineLocalesResources("canvas", {
   /** The text for the "Link to Canvas" action. */
   "action.link-document": "Link to Canvas",
