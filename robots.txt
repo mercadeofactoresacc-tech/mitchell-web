@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://manufacturasmitchell.com/sitemap.xml
