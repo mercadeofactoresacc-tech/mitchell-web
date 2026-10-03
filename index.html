@@ -8,415 +8,7 @@
 <meta name="theme-color" content="#070A12">
 <title>Marquillas Mitchell</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   MITCHELL v4 — Sobrio. Fondo neutro casi negro.
-   El color lo pone el producto, no la página.
-   Un solo tipo. Acento rojo solo donde hay acción.
-   ============================================================ */
-:root{
-  --bg:      #070A12;
-  --bg-2:    #0B0F1A;
-  --surf:    rgba(20,25,40,.72);
-  --surf-2:  rgba(28,34,52,.82);
-  --surf-3:  rgba(38,45,66,.9);
-
-  --txt:     #FAFAFA;
-  --txt-2:   #A4A4AD;
-  --txt-3:   #71717A;
-  --txt-4:   #52525B;
-
-  --accent:  #F04438;
-  --accent-d:#D92D20;
-  --wa:      #25D366;
-
-  --line:    rgba(255,255,255,.08);
-  --line-2:  rgba(255,255,255,.14);
-  --line-3:  rgba(255,255,255,.22);
-
-  --pad:     clamp(4rem, 8vw, 7.5rem);
-  --gutter:  clamp(1.25rem, 4vw, 2.5rem);
-  --maxw:    75rem;
-
-  --t-hero: clamp(2.35rem, 1.1rem + 5vw, 4.4rem);
-  --t-h2:   clamp(1.7rem, 1.1rem + 2.2vw, 2.7rem);
-  --t-h3:   clamp(1.02rem, .95rem + .4vw, 1.2rem);
-  --t-body: clamp(.98rem, .95rem + .2vw, 1.075rem);
-  --t-sm:   .9rem;
-  --t-xs:   .8125rem;
-  --t-mono: .6875rem;
-  --ease: cubic-bezier(.22,1,.36,1);
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-body{
-  margin:0;background:var(--bg);color:var(--txt);
-  font-family:'Instrument Sans',system-ui,-apple-system,sans-serif;
-  font-size:var(--t-body);line-height:1.6;letter-spacing:-.011em;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-img{max-width:100%;height:auto;display:block}
-a{color:inherit;text-decoration:none}
-input,button{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-
-/* Tipografia sobria: display en peso medio, no negrita */
-h1,h2,h3{margin:0;text-wrap:balance}
-h1{font-size:var(--t-hero);line-height:1.04;letter-spacing:-.036em;font-weight:600}
-h2{font-size:var(--t-h2);line-height:1.1;letter-spacing:-.03em;font-weight:600}
-h3{font-size:var(--t-h3);line-height:1.35;letter-spacing:-.018em;font-weight:600}
-p{margin:0;text-wrap:pretty}
-.lead{font-size:clamp(1rem,.96rem+.35vw,1.2rem);line-height:1.6;color:var(--txt-2);font-weight:400}
-.mono{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:var(--t-mono);
-      text-transform:uppercase;letter-spacing:.14em;font-weight:500;color:var(--txt-3)}
-.hl{color:var(--accent)}
-.q{border-bottom:1px dotted rgba(240,68,56,.55);cursor:help}
-
-.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
-section{padding-block:var(--pad)}
-
-/* ---------- NAV: DOS NIVELES ---------- */
-.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:70;
-        background:rgba(7,10,18,.72);backdrop-filter:saturate(180%) blur(22px);
-        border-bottom:1px solid var(--line)}
-.nav1{display:flex;align-items:center;gap:1rem;min-height:62px}
-.logo{display:flex;flex-direction:column;line-height:1;flex:none}
-.logo i{font-style:normal;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
-        color:var(--accent);font-weight:600;margin-bottom:4px}
-.logo b{font-size:1.22rem;font-weight:600;letter-spacing:-.035em;color:#fff;line-height:.95}
-.nav1 .mid{display:none;gap:1.75rem;margin-inline:auto;align-items:center}
-.nav1 .mid a{font-size:var(--t-sm);color:var(--txt-2);font-weight:500;transition:color .18s var(--ease)}
-.nav1 .mid a:hover{color:#fff}
-@media(min-width:940px){.nav1 .mid{display:flex}}
-.nav1 .end{display:flex;align-items:center;gap:.6rem;margin-left:auto}
-@media(min-width:940px){.nav1 .end{margin-left:0}}
-.tel{display:none;font-size:var(--t-sm);color:var(--txt-2)}
-.tel:hover{color:#fff}
-@media(min-width:700px){.tel{display:inline}}
-
-/* Segunda barra: categorias de producto */
-.nav2{border-top:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
-.nav2::-webkit-scrollbar{display:none}
-.nav2 .inner{display:flex;gap:.3rem;min-height:48px;align-items:center;
-             max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);
-             white-space:nowrap}
-.nav2 a{font-size:var(--t-sm);color:var(--txt-3);font-weight:500;padding:.45rem .8rem;
-        border-radius:8px;transition:color .18s var(--ease),background-color .18s var(--ease)}
-.nav2 a:hover{color:#fff;background:var(--surf-2)}
-.nav2 a.on{color:#fff;background:var(--surf-2)}
-
-.burger{width:40px;height:40px;flex:none;display:grid;place-items:center;
-        background:none;border:1px solid var(--line-2);border-radius:9px;color:#fff;cursor:pointer}
-@media(min-width:940px){.burger{display:none}}
-
-/* ---------- BOTONES ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
-     padding:.7rem 1.25rem;border-radius:999px;font-weight:600;font-size:var(--t-sm);
-     letter-spacing:-.012em;border:1px solid transparent;min-height:42px;
-     transition:background-color .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
-.btn svg{width:15px;height:15px;flex:none}
-.btn-white{background:#fff;color:#09090B}
-.btn-white:hover{background:var(--txt-2)}
-.btn-red{background:var(--accent);color:#fff}
-.btn-red:hover{background:var(--accent-d)}
-.btn-line{background:transparent;color:var(--txt);border-color:var(--line-3)}
-.btn-line:hover{border-color:#fff;background:rgba(255,255,255,.05)}
-.btn-lg{padding:.9rem 1.7rem;min-height:50px;font-size:1rem}
-
-/* ---------- HERO ---------- */
-.hero{text-align:center;padding-block:clamp(3.5rem,8vw,6.5rem) clamp(2.5rem,5vw,4rem);
-      position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(56% 42% at 50% -6%, rgba(255,255,255,.07), transparent 72%)}
-.hero .wrap{position:relative;z-index:1}
-.hero h1{max-width:20ch;margin:0 auto 1.4rem}
-.hero .lead{max-width:44ch;margin:0 auto 2.4rem}
-
-/* Buscador — el corazon del "que encuentre todo" */
-.finder{max-width:34rem;margin:0 auto}
-.finder-box{display:flex;align-items:center;gap:.65rem;background:var(--surf);
-            border:1px solid var(--line-2);border-radius:999px;padding:.35rem .4rem .35rem 1.1rem;
-            transition:border-color .2s var(--ease)}
-.finder-box:focus-within{border-color:var(--line-3)}
-.finder-box svg{width:17px;height:17px;color:var(--txt-3);flex:none}
-.finder-box input{flex:1;background:none;border:0;outline:none;min-width:0;
-                  font-size:var(--t-sm);padding-block:.55rem}
-.finder-box input::placeholder{color:var(--txt-4)}
-.chips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1rem}
-.chip{background:var(--surf);border:1px solid var(--line);border-radius:999px;
-      padding:.35rem .8rem;font-size:var(--t-xs);color:var(--txt-3);cursor:pointer;
-      transition:color .18s var(--ease),border-color .18s var(--ease)}
-.chip:hover{color:#fff;border-color:var(--line-3)}
-
-/* ---------- CATÁLOGO ---------- */
-.cat-head{display:flex;align-items:baseline;justify-content:space-between;
-          gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.count{font-size:var(--t-xs);color:var(--txt-4)}
-.grid{display:grid;gap:1rem}
-@media(min-width:620px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
-.card{display:flex;flex-direction:column;background:var(--surf);border:1px solid var(--line);
-      border-radius:14px;overflow:hidden;
-      transition:border-color .22s var(--ease),background-color .22s var(--ease)}
-@media(hover:hover){.card:hover{border-color:var(--line-3);background:var(--surf-2)}}
-.card[hidden]{display:none}
-.thumb{position:relative;overflow:hidden;background:var(--surf-3)}
-.thumb img{width:100%;aspect-ratio:3/2;object-fit:cover;transition:transform .5s var(--ease)}
-@media(hover:hover){.card:hover .thumb img{transform:scale(1.035)}}
-.tag{position:absolute;top:.7rem;left:.7rem;background:rgba(9,9,11,.78);
-     backdrop-filter:blur(8px);border:1px solid var(--line-2);border-radius:7px;
-     padding:.25rem .55rem;font-size:.6875rem;color:var(--txt-2);font-weight:500}
-.card-body{padding:1.1rem 1.2rem 1.25rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
-.card p{font-size:var(--t-xs);color:var(--txt-3);line-height:1.55}
-.card .spec{margin-top:.35rem;font-size:var(--t-xs);color:var(--txt-4)}
-.card .spec b{color:var(--txt-2);font-weight:600}
-.card .go{margin-top:auto;padding-top:.85rem;display:inline-flex;align-items:center;gap:.35rem;
-          font-size:var(--t-xs);font-weight:600;color:var(--txt-2)}
-.card .go svg{width:13px;height:13px;transition:transform .2s var(--ease)}
-@media(hover:hover){.card:hover .go{color:#fff}.card:hover .go svg{transform:translateX(3px)}}
-.empty{text-align:center;padding:3rem 1rem;color:var(--txt-3);font-size:var(--t-sm)}
-
-/* ---------- CIFRAS ---------- */
-.stats{border-block:1px solid var(--line);background:var(--bg-2)}
-.stats .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 1rem;
-             padding-block:clamp(2.25rem,4vw,3rem)}
-@media(min-width:800px){.stats .wrap{grid-template-columns:repeat(4,1fr)}}
-.stat b{display:block;font-size:clamp(1.7rem,1.3rem+1.6vw,2.5rem);font-weight:600;
-        letter-spacing:-.04em;line-height:1;margin-bottom:.45rem}
-.stat span{font-size:var(--t-xs);color:var(--txt-3);line-height:1.4;display:block}
-
-/* ---------- PROCESO ---------- */
-.head{max-width:40rem;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
-.head.center{margin-inline:auto;text-align:center}
-.head p{margin-top:.9rem}
-.flow{display:grid;gap:0}
-@media(min-width:900px){.flow{grid-template-columns:repeat(5,1fr);gap:1.5rem}}
-.fstep{padding-block:1.35rem;border-top:1px solid var(--line)}
-.fstep:first-child{border-top-color:var(--line-3)}
-.fstep .n{display:block;margin-bottom:.75rem}
-.fstep h3{margin-bottom:.4rem;font-size:1rem}
-.fstep p{font-size:var(--t-xs);color:var(--txt-3);line-height:1.55;margin-bottom:.7rem}
-.fstep .t{font-size:var(--t-mono);font-family:ui-monospace,monospace;letter-spacing:.1em;
-          color:var(--txt);font-weight:600}
-
-/* ---------- TRES RAZONES ---------- */
-.cols{display:grid;gap:1rem}
-@media(min-width:880px){.cols{grid-template-columns:repeat(3,1fr)}}
-.col{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:1.6rem}
-.col .ico{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;
-          background:var(--surf-3);margin-bottom:1.1rem}
-.col .ico svg{width:18px;height:18px;color:var(--txt)}
-.col h3{margin-bottom:.55rem}
-.col p{font-size:var(--t-sm);color:var(--txt-3);line-height:1.6}
-
-/* ---------- FAQ ---------- */
-.faq{max-width:46rem;margin-inline:auto}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{padding-block:1.2rem;cursor:pointer;list-style:none;display:flex;
-             justify-content:space-between;gap:1rem;align-items:center;min-height:50px;
-             font-weight:600;font-size:var(--t-sm);letter-spacing:-.016em}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";width:10px;height:10px;flex:none;
-  border-right:1.5px solid var(--txt-3);border-bottom:1.5px solid var(--txt-3);
-  transform:rotate(45deg);margin-top:-4px;transition:transform .25s var(--ease)}
-.faq details[open] summary::after{transform:rotate(-135deg);margin-top:2px}
-.faq .a{padding-bottom:1.35rem;font-size:var(--t-sm);color:var(--txt-2);
-        line-height:1.68;max-width:60ch}
-
-/* ---------- CTA ---------- */
-.cta{text-align:center;position:relative;overflow:hidden;
-     border-top:1px solid var(--line);background:var(--bg-2)}
-.cta::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(60% 90% at 50% 100%, rgba(255,255,255,.06), transparent 70%)}
-.cta .wrap{position:relative;z-index:1}
-.cta h2{margin-bottom:1.1rem}
-.cta .lead{max-width:38ch;margin:0 auto 2.2rem}
-.cta .note{margin-top:1.4rem;font-size:var(--t-xs);color:var(--txt-4)}
-
-/* ---------- FLOTANTE ---------- */
-.float{position:fixed;right:1rem;z-index:80;bottom:calc(1rem + env(safe-area-inset-bottom,0px));
-       display:inline-flex;align-items:center;gap:.5rem;background:var(--wa);color:#06301A;
-       font-weight:600;font-size:var(--t-sm);padding:.8rem 1.15rem;border-radius:999px;
-       box-shadow:0 12px 30px -10px rgba(0,0,0,.7);transition:background-color .2s var(--ease)}
-.float:hover{background:#3BE87D}
-.float svg{width:20px;height:20px;flex:none}
-.float span{display:none}
-@media(min-width:560px){.float span{display:inline}}
-
-/* ---------- FOOTER ---------- */
-footer{border-top:1px solid var(--line);padding-block:3.5rem 1.75rem;
-       color:var(--txt-3);font-size:var(--t-sm)}
-.notice{background:var(--surf);border:1px solid var(--line-2);border-radius:12px;
-        padding:.95rem 1.15rem;margin-bottom:2.75rem;font-size:var(--t-xs);
-        color:var(--txt-2);line-height:1.6}
-.notice b{color:var(--accent)}
-.fgrid{display:grid;gap:2.5rem}
-@media(min-width:700px){.fgrid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1020px){.fgrid{grid-template-columns:1.4fr 1fr 1fr 1.3fr}}
-footer h4{color:var(--txt-4);font-family:ui-monospace,monospace;font-size:var(--t-mono);
-          text-transform:uppercase;letter-spacing:.14em;font-weight:500;margin:0 0 1.1rem}
-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
-footer li{font-size:var(--t-xs)}
-footer a:hover{color:#fff}
-.legal{font-size:var(--t-xs);line-height:1.85}
-.legal b{color:var(--txt-2);font-weight:600}
-.fbot{margin-top:2.75rem;padding-top:1.5rem;border-top:1px solid var(--line);
-      display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;font-size:.6875rem;color:var(--txt-4)}
-
-/* ============ CAPA DE OFICIO ============ */
-
-/* Grano de película. Marcador anti-IA: lo genérico nunca tiene textura. */
-body::before{
-  content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.04;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode:overlay;
-}
-
-/* Entrada orquestada: una sola secuencia al cargar, no efectos sueltos */
-@media (prefers-reduced-motion:no-preference){
-  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-  .hero h1,.hero .lead,.hero .finder,.nav2{animation:rise .62s var(--ease) both}
-  .hero h1{animation-delay:.04s}
-  .hero .lead{animation-delay:.13s}
-  .hero .finder{animation-delay:.22s}
-  .nav2{animation-delay:.3s}
-  #grid .card{animation:rise .5s var(--ease) both;animation-delay:calc(var(--i,0)*55ms + .34s)}
-}
-
-/* Barrido de luz sobre la foto al pasar el cursor */
-.thumb::after{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
-  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.13) 50%,transparent 62%);
-  transform:translateX(-60%);transition:opacity .3s var(--ease);
-}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){
-  .card:hover .thumb::after{opacity:1;animation:sweep .85s var(--ease)}
-  @keyframes sweep{from{transform:translateX(-60%)}to{transform:translateX(60%)}}
-}
-
-/* Las cifras se alinean como en una ficha técnica */
-.stat b{font-variant-numeric:tabular-nums}
-
-/* Cinta de producción: el telar, a sangre completa */
-.reel{border-block:1px solid var(--line);background:var(--bg-2);
-      padding-block:clamp(2.25rem,4vw,3.25rem);overflow:hidden}
-.reel .cap{max-width:var(--maxw);margin:0 auto clamp(1.25rem,2.5vw,1.75rem);
-           padding-inline:var(--gutter);display:flex;justify-content:space-between;
-           gap:1rem;flex-wrap:wrap;align-items:baseline}
-.track{display:flex;gap:.85rem;width:max-content}
-@media (prefers-reduced-motion:no-preference){
-  .track{animation:slide 52s linear infinite}
-  .reel:hover .track{animation-play-state:paused}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-}
-@media (prefers-reduced-motion:reduce){
-  .reel{overflow-x:auto}
-}
-.track figure{margin:0;flex:none;width:clamp(11rem,26vw,16rem);
-              border:1px solid var(--line);border-radius:12px;overflow:hidden;
-              background:var(--surf);position:relative}
-.track img{width:100%;aspect-ratio:4/3;object-fit:cover;opacity:.78;
-           transition:opacity .3s var(--ease)}
-.track figure:hover img{opacity:1}
-.track figcaption{position:absolute;left:0;right:0;bottom:0;padding:.55rem .7rem;
-                  font-size:.6875rem;color:var(--txt-2);
-                  background:linear-gradient(transparent,rgba(9,9,11,.92))}
-
-/* El subrayado de los enlaces crece desde la izquierda */
-.ul{position:relative;color:var(--txt);font-weight:600}
-.ul::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;
-           background:currentColor;transform:scaleX(0);transform-origin:left;
-           transition:transform .28s var(--ease)}
-.ul:hover::after{transform:scaleX(1)}
-
-/* ============ VISOR DE DETALLE ============ */
-dialog.viewer{
-  border:0;padding:0;background:transparent;max-width:none;max-height:none;
-  width:100%;height:100%;color:var(--txt);overflow:visible;
-}
-dialog.viewer::backdrop{background:rgba(5,5,7,.86);backdrop-filter:blur(10px)}
-.vbox{
-  position:fixed;inset:0;display:grid;place-items:center;
-  padding:clamp(.75rem,3vw,2.5rem);
-}
-.vcard{
-  width:min(100%,62rem);max-height:calc(100dvh - clamp(1.5rem,6vw,5rem));
-  background:var(--surf);border:1px solid var(--line-2);border-radius:18px;
-  overflow:hidden;display:grid;grid-template-rows:auto 1fr;
-}
-@media(min-width:900px){.vcard{grid-template-rows:none;grid-template-columns:1.15fr .85fr}}
-.vclose{
-  position:absolute;top:clamp(1rem,3vw,2rem);right:clamp(1rem,3vw,2rem);z-index:3;
-  width:42px;height:42px;border-radius:999px;display:grid;place-items:center;
-  background:rgba(9,9,11,.8);border:1px solid var(--line-2);color:#fff;cursor:pointer;
-  backdrop-filter:blur(8px);transition:background-color .2s var(--ease)
-}
-.vclose:hover{background:var(--surf-3)}
-
-/* Panel de imagen con zoom macro */
-.vshot{position:relative;overflow:hidden;background:var(--surf-3);cursor:zoom-in}
-.vshot.on{cursor:zoom-out}
-.vshot img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;
-           transition:transform .35s var(--ease);transform-origin:center}
-@media(min-width:900px){.vshot img{aspect-ratio:auto;min-height:100%}}
-.vshot.on img{transform:scale(2.6);transition:transform .12s linear}
-.vhint{position:absolute;left:.85rem;bottom:.85rem;display:inline-flex;align-items:center;
-       gap:.4rem;background:rgba(9,9,11,.82);backdrop-filter:blur(8px);
-       border:1px solid var(--line-2);border-radius:999px;padding:.38rem .75rem;
-       font-size:.6875rem;color:var(--txt-2);pointer-events:none;
-       transition:opacity .25s var(--ease)}
-.vshot.on .vhint{opacity:0}
-.vhint svg{width:13px;height:13px}
-
-/* Panel de datos */
-.vinfo{padding:clamp(1.4rem,3vw,2.1rem);overflow-y:auto;display:flex;flex-direction:column;gap:1.1rem}
-.vinfo h3{font-size:clamp(1.35rem,1.1rem+1vw,1.85rem);letter-spacing:-.03em;line-height:1.12}
-.vinfo .desc{font-size:var(--t-sm);color:var(--txt-2);line-height:1.62}
-.vspecs{display:grid;gap:0;border-top:1px solid var(--line)}
-.vspecs div{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:baseline;
-            padding-block:.7rem;border-bottom:1px solid var(--line)}
-.vspecs dt{font-size:var(--t-xs);color:var(--txt-4);white-space:nowrap}
-.vspecs dd{margin:0;font-size:var(--t-xs);color:var(--txt);text-align:right;font-weight:500}
-.vcta{margin-top:auto;padding-top:.5rem;display:grid;gap:.55rem}
-.vcta .btn{width:100%}
-.vnote{font-size:.6875rem;color:var(--txt-4);text-align:center}
-
-/* ============ CIELO ============
-   Tres capas: nebulosa que deriva, estrellas en canvas, y un velo
-   que baja la intensidad donde hay texto. Nada de neón.        */
-.sky{position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;
-     background:
-       radial-gradient(120% 85% at 50% -15%, #101830 0%, transparent 62%),
-       linear-gradient(#070A12, #05070E 60%, #070A12)}
-.neb{position:absolute;inset:-30%;pointer-events:none;
-     background:
-       radial-gradient(40% 32% at 24% 28%, rgba(72,112,215,.34), transparent 66%),
-       radial-gradient(36% 30% at 76% 20%, rgba(148,86,205,.24), transparent 68%),
-       radial-gradient(32% 28% at 64% 72%, rgba(212,72,62,.17), transparent 70%),
-       radial-gradient(46% 36% at 10% 84%, rgba(48,84,170,.26), transparent 68%);
-     filter:blur(34px)}
-.neb2{position:absolute;inset:-35%;pointer-events:none;mix-blend-mode:screen;
-      background:
-        radial-gradient(30% 24% at 62% 38%, rgba(92,150,235,.16), transparent 70%),
-        radial-gradient(26% 22% at 30% 62%, rgba(178,110,225,.13), transparent 72%);
-      filter:blur(52px)}
-#stars{position:absolute;inset:0;width:100%;height:100%;display:block}
-/* Velo: la galaxia se apaga donde vive el texto, nunca al revés */
-.sky::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(to bottom, rgba(7,10,18,0) 0%, rgba(7,10,18,.38) 42%, rgba(7,10,18,.72) 100%)}
-
-/* Las superficies dejan pasar el cielo */
-body{background:transparent}
-.stats,.reel,.cta{background:rgba(9,13,24,.55);backdrop-filter:blur(3px)}
-.card,.col{backdrop-filter:blur(7px)}
-.finder-box{background:rgba(16,21,34,.78);backdrop-filter:blur(8px)}
-.chip{background:rgba(16,21,34,.6);backdrop-filter:blur(6px)}
-footer{background:rgba(5,7,14,.78);backdrop-filter:blur(6px)}
-.vcard{background:rgba(14,18,30,.94);backdrop-filter:blur(16px)}
-</style>
+<link rel="stylesheet" href="/css/site.css">
 
 </head>
 <body>
@@ -487,93 +79,157 @@ footer{background:rgba(5,7,14,.78);backdrop-filter:blur(6px)}
 
     <div class="grid" id="grid">
 
-      <a class="card" data-k="marquillas tejida damasco satén taffeta ropa etiqueta" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20TEJIDA." data-spec="Material|Damasco, satén o taffeta;Colores|Hasta 8;Acabado de borde|Corte caliente, doblez, centerfold;Resistencia|Lavado industrial;Mínimo|500 unidades*;Muestra física|3 días*;Producción|8 días*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Marquillas</span><img src="img/tejida-900.webp" srcset="img/tejida-480.webp 480w, img/tejida-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla tejida" loading="lazy"></div>
+      <a class="card" data-k="marquillas marquillas tejida bordada damasco satén taffeta ropa etiqueta lavable marquilla tejida y bordada" data-spec="Material|Damasco, satén, taffeta;Colores|Hasta 8;Acabado de borde|Corte caliente, doblez, centerfold;Resistencia|Lavado industrial;Mínimo|500 unidades*;Muestra física|3 días*;Producción|8 días*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20TEJIDA%20Y%20BORDADA." href="/marquillas-para-ropa/">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="/img/logo-mitchell-480.webp"  alt="Marquilla tejida y bordada" class="" loading="lazy" decoding="async"></div>
         <div class="card-body">
-          <h3>Marquilla tejida</h3>
-          <p>Damasco, satén o taffeta, hasta ocho colores. La que aguanta lavandería sin perder tono.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · muestra en <span class="q">3 días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          <h3>Marquilla tejida y bordada</h3>
+          <p>Marquillas para ropa en material lavable y resistente, estas son frecuentemente usadas para personalizar diferentes elementos , las marquillas para ropa son…</p>
+          <p class="spec">Damasco, satén, taffeta · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
 
-      <a class="card" data-k="marquillas impresa satén nylon algodón ropa" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20IMPRESA." data-spec="Material|Satén, nylon o algodón;Impresión|Serigrafía y transferencia;Usos|Tallaje, composición, cuidado;Mínimo|500 unidades*;Muestra física|3 días*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Marquillas</span><img src="img/pvc-900.webp" srcset="img/pvc-480.webp 480w, img/pvc-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla impresa" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Marquilla impresa</h3>
-          <p>Satén, nylon y algodón. Para tallaje, composición e instrucciones de cuidado.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" data-k="marquillas 3d relieve pvc flexible molde" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%203D." data-spec="Material|PVC flexible;Relieve|Alto relieve moldeado;Molde|Pago único, queda a tu nombre;Colores|Según pantone;Mínimo|500 unidades*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Marquillas</span><img src="img/3d-900.webp" srcset="img/3d-480.webp 480w, img/3d-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla 3D" loading="lazy"></div>
+      <a class="card" data-k="marquillas marquillas 3d relieve pvc flexible molde alto relieve marquilla 3d" data-spec="Material|PVC flexible;Relieve|Plano a redondo;Molde|Pago único, queda a tu nombre;Mínimo|500 unidades*;Producción|Por confirmar*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%203D." href="/marquillas-3d/">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="/img/img-8066-edited-480.webp"  alt="Marquilla 3D" class="" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <h3>Marquilla 3D</h3>
-          <p>Alto relieve en PVC flexible. El molde se hace una vez y queda para los pedidos siguientes.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · molde <span class="q">por confirmar</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          <p>Marquillas especiales en múltiples tipos de relieves, empezando desde relieves planos hasta redondos, estos apliques son usados para personalizar y darle más…</p>
+          <p class="spec">PVC flexible · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
 
-      <a class="card" data-k="clises clisé fotograbado magnesio bronce repujar estampar" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20un%20CLIS%C3%89." data-spec="Material|Magnesio y bronce;Espesores|1,5 mm · 3 mm · 7 mm;Usos|Repujar, estampar, marcar;Profundidad|Según el material a marcar;Molde|Por confirmar*;Elaboración|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Clisés</span><img src="img/clise-900.webp" srcset="img/clise-480.webp 480w, img/clise-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Clisé en fotograbado" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Clisés en fotograbado</h3>
-          <p>Magnesio y bronce, grabados a la profundidad que pida el material que vas a marcar.</p>
-          <p class="spec"><b>Molde desde <span class="q">por confirmar</span></b></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" data-k="herrajes metal níquel dorado envejecido hebilla remache placa" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20HERRAJES." data-spec="Material|Zamak y latón;Acabados|Níquel, dorado, envejecido;Piezas|Hebillas, remaches, placas;Personalización|Logo en relieve;Mínimo|500 unidades*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Herrajes</span><img src="img/herraje-900.webp" srcset="img/herraje-480.webp 480w, img/herraje-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Herrajes personalizados" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Herrajes personalizados</h3>
-          <p>Níquel, dorado y envejecido. Hebillas, remaches y placas con el logo de tu marca.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" data-k="pvc calzado aplique capellada suela babucha zapato bebé" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20APLIQUES%20EN%20PVC." data-spec="Material|PVC rígido o flexible;Aplicaciones|Calzado, chaquetas, morrales;También|Capelladas y suelas de bebé;Dureza|A definir según uso;Mínimo|500 unidades*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Apliques en PVC</span><img src="img/llavero-900.webp" srcset="img/llavero-480.webp 480w, img/llavero-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Apliques y capelladas en PVC" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Apliques y capelladas en PVC</h3>
-          <p>Rígido o flexible, para calzado, chaquetas y morrales. También suelas para zapato de bebé.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" data-k="publicitario llavero manilla caucho sintético feria activación" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20LLAVEROS%20Y%20MANILLAS." data-spec="Material|PVC, caucho y sintético;Usos|Feria, activación, obsequio;Molde|Se puede reusar el de tu marquilla;Mínimo|500 unidades*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Publicitario</span><img src="img/hero-900.webp" srcset="img/hero-480.webp 480w, img/hero-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Llaveros y manillas publicitarias" loading="lazy"></div>
-        <div class="card-body">
-          <h3>Llaveros y manillas</h3>
-          <p>PVC, caucho y sintético. Lo que se reparte en feria, con el mismo molde de tu marquilla.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
-        </div>
-      </a>
-
-      <a class="card" data-k="marquillas lavable nylon tallaje cuidado ropa interior" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20LAVABLE%20EN%20NYLON." data-spec="Material|Nylon suave;Tacto|No raspa la piel;Usos|Ropa interior e infantil;Impresión|Resistente al lavado;Mínimo|500 unidades*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Marquillas</span><img src="img/tejida-900.webp" srcset="img/tejida-480.webp 480w, img/tejida-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla lavable en nylon" loading="lazy"></div>
+      <a class="card" data-k="marquillas marquillas nylon lavable ropa interior bebé infantil suave marquilla lavable en nylon" data-spec="Material|Nylon;Técnica|Transferencia térmica;Tacto|Suave, no raspa;Usos|Ropa interior e infantil;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20LAVABLE%20EN%20NYLON." href="/marquillas-lavables-nylon/">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="/img/img-8147-480.webp"  alt="Marquilla lavable en nylon" class="" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <h3>Marquilla lavable en nylon</h3>
-          <p>Suave al contacto, para ropa interior y prenda infantil. No raspa la piel.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          <p>Etiquetas impresas por medio de transferencia térmica, con la opción de imprimirse por 1 cara o por las dos. Estas son ideales…</p>
+          <p class="spec">Nylon · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
 
-      <a class="card" data-k="marquillas térmica termoadhesiva sin costura plancha" href="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20T%C3%89RMICA." data-spec="Material|Transferencia termoadhesiva;Aplicación|Plancha de calor;Ventaja|Sin costura, no irrita;Usos|Prenda deportiva;Mínimo|500 unidades*;Producción|Por confirmar*" target="_blank" rel="noopener">
-        <div class="thumb"><span class="tag">Marquillas</span><img src="img/3d-900.webp" srcset="img/3d-480.webp 480w, img/3d-900.webp 900w" sizes="(max-width:620px) 92vw, (max-width:980px) 46vw, 30vw" alt="Marquilla térmica termoadhesiva" loading="lazy"></div>
+      <a class="card" data-k="marquillas marquillas térmica termoadhesiva plancha sin costura deportiva marquilla térmica" data-spec="Material|Transferencia termoadhesiva;Aplicación|Plancha de calor;Ventaja|Sin costura;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20T%C3%89RMICA." href="/marquillas-termicas-termoadhesivas/">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="/img/img-8116-480.webp"  alt="Marquilla térmica" class="" loading="lazy" decoding="async"></div>
         <div class="card-body">
           <h3>Marquilla térmica</h3>
-          <p>Termoadhesiva, se aplica con plancha. Para prenda deportiva donde no va costura.</p>
-          <p class="spec"><b>Desde <span class="q">500 u</span></b> · <span class="q">X días</span></p>
-          <span class="go">Cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+          <p>Marquillas térmicas , por el reverso tienen un adhesivo de excelente calidad, el cual permite que usted la pegue en cualquier producto,…</p>
+          <p class="spec">Transferencia termoadhesiva · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="marquillas marquillas razo falla calzado decorar marquilla en razo y falla" data-spec="Material|Razo y falla;Usos|Calzado y marroquinería;Mínimo|500 unidades*;Producción|Por confirmar*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLA%20EN%20RAZO%20Y%20FALLA." href="/marquillas-en-razo-y-falla/">
+        <div class="thumb"><span class="tag">Marquillas</span><img src="/img/img-8110-480.webp"  alt="Marquilla en razo y falla" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Marquilla en razo y falla</h3>
+          <p>Marquillas usadas para decorar algunos tipos de calzado sport y morrales, principalmente funcionan para poner la marca de su empresa en cada…</p>
+          <p class="spec">Razo y falla · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="clises clises clisé fotograbado magnesio bronce repujar estampar troquel clisés en fotograbado" data-spec="Material|Magnesio y bronce;Espesores|1,5 mm · 3 mm · 7 mm;Usos|Repujar, estampar, marcar;Molde|Por confirmar*;Elaboración|Por confirmar*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20CLIS%C3%89S%20EN%20FOTOGRABADO." href="/clises-en-fotograbado/">
+        <div class="thumb"><span class="tag">Clisés</span><img src="/img/img-7942-1-480.webp"  alt="Clisés en fotograbado" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Clisés en fotograbado</h3>
+          <p>Bogota Clisés El clisé es usado para la impresión también para repujar todo tipo de material, el clisé tiene múltiples formas de…</p>
+          <p class="spec">Magnesio y bronce · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="clises clises repuje sintético cuero marroquinería repujes en sintético" data-spec="Material|Sintético;Técnica|Repujado con clisé propio;Mínimo|500 unidades*;Producción|Por confirmar*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20REPUJES%20EN%20SINT%C3%89TICO." href="/repujes-en-sintetico/">
+        <div class="thumb"><span class="tag">Clisés</span><img src="/img/img-8130-480.webp"  alt="Repujes en sintético" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Repujes en sintético</h3>
+          <p>Estos repujes son elaborados con los clises mismos que se fabrican en nuestra empresa, son muy útiles a la hora de querer…</p>
+          <p class="spec">Sintético · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="pvc pvc plastisol accesorios apliques microinyección chaquetas morrales apliques y accesorios en pvc" data-spec="Material|Plastisol, PVC rígido y flexible;Técnica|Microinyección;Usos|Chaquetas, morrales, accesorios;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20APLIQUES%20Y%20ACCESORIOS%20EN%20PVC." href="/accesorios-pvc/">
+        <div class="thumb"><span class="tag">Apliques en PVC</span><img src="/img/logo-mitchell-480.webp"  alt="Apliques y accesorios en PVC" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Apliques y accesorios en PVC</h3>
+          <p>Accesorios plastisol Microinyeccion en platisol elaborada de la mejor calidad, de los tamaños requeridos para cualquier necesidad, de muy buena durabilidad y…</p>
+          <p class="spec">Plastisol, PVC rígido y flexible · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="calzado calzado pvc capellada plastisol zapato tenis marquillas y capelladas para calzado" data-spec="Material|Plastisol;Piezas|Marquillas y capelladas;Usos|Calzado deportivo y casual;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MARQUILLAS%20Y%20CAPELLADAS%20PARA%20CALZADO." href="/marquillas-y-capelladas-pvc-para-calzado/">
+        <div class="thumb"><span class="tag">Calzado</span><img src="/img/img-7981-edited-480.webp"  alt="Marquillas y capelladas para calzado" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Marquillas y capelladas para calzado</h3>
+          <p>Marquillas capellada plastisol Marquillas en plastisol se utilizan como accesorio de cada producto, como resultado logra dar vida y atraer la atención.…</p>
+          <p class="spec">Plastisol · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="calzado calzado suela babucha zapato bebé infantil pvc suelas para babuchas y zapato de bebé" data-spec="Material|PVC flexible;Colores|A definir;Usos|Babuchas y zapato de bebé;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20SUELAS%20PARA%20BABUCHAS%20Y%20ZAPATO%20DE%20BEB%C3%89." href="/suela-para-babuchas-zapatos-bebe/">
+        <div class="thumb"><span class="tag">Calzado</span><img src="/img/img-7966-edited-480.webp"  alt="Suelas para babuchas y zapato de bebé" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Suelas para babuchas y zapato de bebé</h3>
+          <p>Suela para babuchas/zapatos bebé Suelas de diferentes colores y diseños para sus productos, puede ser usada para zapatos de bebe llamados no…</p>
+          <p class="spec">PVC flexible · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="herrajes herrajes zamac níquel dorado envejecido hebilla remache placa metal herrajes personalizados" data-spec="Material|Zamac;Acabados|Níquel, dorado, envejecido;Piezas|Hebillas, remaches, placas;Personalización|Logo en relieve;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20HERRAJES%20PERSONALIZADOS." href="/herrajes-personalizados/">
+        <div class="thumb"><span class="tag">Herrajes</span><img src="/img/img-8105-480.webp"  alt="Herrajes personalizados" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Herrajes personalizados</h3>
+          <p>Son elaborados en zamac de la mejor calidad, contando con diferentes colores y tamaños, son usados para productos relacionados con la marroquinería…</p>
+          <p class="spec">Zamac · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="publicitario publicitario llavero plastisol feria obsequio llaveros publicitarios" data-spec="Material|Plastisol y PVC;Usos|Feria, activación, obsequio;Molde|Puede reusar el de tu marquilla;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20LLAVEROS%20PUBLICITARIOS." href="/llaveros-publicitarios/">
+        <div class="thumb"><span class="tag">Publicitario</span><img src="/img/img-8167-480.webp"  alt="Llaveros publicitarios" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Llaveros publicitarios</h3>
+          <p>Especialmente para empresas que quieran dar publicidad a sus clientes, con colores e información de su empresa, a la vez se puede…</p>
+          <p class="spec">Plastisol y PVC · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="publicitario publicitario manilla pulsera plastisol evento campaña manillas publicitarias" data-spec="Material|Plastisol;Usos|Eventos y campañas;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20MANILLAS%20PUBLICITARIAS." href="/manillas-publicitarias/">
+        <div class="thumb"><span class="tag">Publicitario</span><img src="/img/img-8179-edited-480.webp"  alt="Manillas publicitarias" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Manillas publicitarias</h3>
+          <p>Manillas fabricadas en plastisol, prestando un practico cierre con broches, estas manillas son típicamente usadas para dar como obsequio a los clientes…</p>
+          <p class="spec">Plastisol · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a class="card" data-k="publicitario publicitario sticker calcomanía impresión calor stickers" data-spec="Técnica|Impresión al calor;Tamaños|Varios;Usos|Señalización y marca;Mínimo|500 unidades*"
+         data-wa="https://wa.me/573123794395?text=Hola%2C%20quiero%20cotizar%20STICKERS." href="/stickers/">
+        <div class="thumb"><span class="tag">Publicitario</span><img src="/img/img-8181-480.webp"  alt="Stickers" class="" loading="lazy" decoding="async"></div>
+        <div class="card-body">
+          <h3>Stickers</h3>
+          <p>Impresos al calor en diferentes tamaños, usados para diferentes necesidades, especialmente para códigos de barra de todo tipo, normas técnicas, stickers requeridos…</p>
+          <p class="spec">Impresión al calor · Desde <span class="q">500 u</span></p>
+          <span class="go">Ver ficha <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
 
@@ -595,14 +251,14 @@ footer{background:rgba(5,7,14,.78);backdrop-filter:blur(6px)}
     <span class="mono" style="color:var(--txt-4)">Restrepo · Bogotá</span>
   </div>
   <div class="track" id="track">
-    <figure><img src="img/tejida-480.webp" alt="Marquilla tejida" loading="lazy"><figcaption>Tejida · 8 colores</figcaption></figure>
-    <figure><img src="img/3d-480.webp" alt="Marquilla 3D" loading="lazy"><figcaption>3D en PVC</figcaption></figure>
-    <figure><img src="img/clise-480.webp" alt="Clisé en fotograbado" loading="lazy"><figcaption>Clisé en magnesio</figcaption></figure>
-    <figure><img src="img/herraje-480.webp" alt="Herraje personalizado" loading="lazy"><figcaption>Herraje envejecido</figcaption></figure>
-    <figure><img src="img/pvc-480.webp" alt="Aplique en PVC" loading="lazy"><figcaption>Aplique en PVC</figcaption></figure>
-    <figure><img src="img/llavero-480.webp" alt="Llavero publicitario" loading="lazy"><figcaption>Llavero en caucho</figcaption></figure>
-    <figure><img src="img/hero-480.webp" alt="Marquilla terminada" loading="lazy"><figcaption>Corte caliente</figcaption></figure>
-    <figure><img src="img/caso-480.webp" alt="Clisé en magnesio de 3 mm" loading="lazy"><figcaption>Magnesio 3 mm</figcaption></figure>
+    <figure><img src="/img/tejida-480.webp" alt="Marquilla tejida" loading="lazy"><figcaption>Tejida · 8 colores</figcaption></figure>
+    <figure><img src="/img/3d-480.webp" alt="Marquilla 3D" loading="lazy"><figcaption>3D en PVC</figcaption></figure>
+    <figure><img src="/img/clise-480.webp" alt="Clisé en fotograbado" loading="lazy"><figcaption>Clisé en magnesio</figcaption></figure>
+    <figure><img src="/img/herraje-480.webp" alt="Herraje personalizado" loading="lazy"><figcaption>Herraje envejecido</figcaption></figure>
+    <figure><img src="/img/pvc-480.webp" alt="Aplique en PVC" loading="lazy"><figcaption>Aplique en PVC</figcaption></figure>
+    <figure><img src="/img/llavero-480.webp" alt="Llavero publicitario" loading="lazy"><figcaption>Llavero en caucho</figcaption></figure>
+    <figure><img src="/img/hero-480.webp" alt="Marquilla terminada" loading="lazy"><figcaption>Corte caliente</figcaption></figure>
+    <figure><img src="/img/caso-480.webp" alt="Clisé en magnesio de 3 mm" loading="lazy"><figcaption>Magnesio 3 mm</figcaption></figure>
   </div>
 </div>
 
@@ -772,7 +428,7 @@ footer{background:rgba(5,7,14,.78);backdrop-filter:blur(6px)}
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4-.3.3c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg>
             Cotizar esta línea
           </a>
-          <p class="vnote">Los datos con * están por confirmar con el cliente.</p>
+          <p class="vnote">Los datos con * están por confirmar.</p>
         </div>
       </div>
     </div>
@@ -784,323 +440,8 @@ footer{background:rgba(5,7,14,.78);backdrop-filter:blur(6px)}
   <span>Cotizar</span>
 </a>
 
-<script>
 
-// Índice para escalonar la entrada de las tarjetas
-document.querySelectorAll('#grid .card').forEach(function(c,i){ c.style.setProperty('--i', i); });
 
-// La cinta se duplica para que el bucle no tenga costura
-(function(){
-  var t = document.getElementById('track');
-  if (!t) return;
-  t.innerHTML += t.innerHTML;
-})();
-
-// Las cifras cuentan al entrar en pantalla. Una sola vez.
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var nums = Array.prototype.slice.call(document.querySelectorAll('.stat b'));
-  if (reduce || !('IntersectionObserver' in window)) return;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      if (!en.isIntersecting) return;
-      io.unobserve(en.target);
-      var el = en.target, full = el.textContent.trim();
-      var m = full.match(/(\D*)(\d+)(.*)/);
-      if (!m) return;
-      var pre = m[1], target = parseInt(m[2], 10), post = m[3];
-      var t0 = null, dur = 900;
-      function tick(ts){
-        if (!t0) t0 = ts;
-        var p = Math.min((ts - t0) / dur, 1);
-        var e = 1 - Math.pow(1 - p, 3);
-        el.textContent = pre + Math.round(target * e) + post;
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      el.textContent = pre + '0' + post;
-      requestAnimationFrame(tick);
-    });
-  }, { threshold: .55 });
-  nums.forEach(function(n){ io.observe(n); });
-})();
-
-(function(){
-  var input = document.getElementById('q');
-  var cards = Array.prototype.slice.call(document.querySelectorAll('#grid .card'));
-  var count = document.getElementById('count');
-  var empty = document.getElementById('empty');
-  var tabs  = Array.prototype.slice.call(document.querySelectorAll('.nav2 a'));
-  var term = '', cat = '';
-
-  function norm(s){
-    return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
-  }
-  function apply(){
-    var t = norm(term), c = norm(cat), shown = 0;
-    cards.forEach(function(card){
-      var k = norm(card.dataset.k + ' ' + card.textContent);
-      var ok = (!t || k.indexOf(t) !== -1) && (!c || k.indexOf(c) !== -1);
-      card.hidden = !ok;
-      if (ok) shown++;
-    });
-    count.textContent = shown + (shown === 1 ? ' línea' : ' líneas');
-    empty.hidden = shown !== 0;
-  }
-
-  input.addEventListener('input', function(){ term = input.value; apply(); });
-
-  document.querySelectorAll('.chip').forEach(function(chip){
-    chip.addEventListener('click', function(){
-      input.value = chip.dataset.s; term = chip.dataset.s; apply();
-      document.getElementById('catalogo').scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  });
-
-  tabs.forEach(function(tab){
-    tab.addEventListener('click', function(){
-      tabs.forEach(function(t){ t.classList.remove('on'); });
-      tab.classList.add('on');
-      cat = tab.dataset.f || '';
-      input.value = ''; term = '';
-      apply();
-    });
-  });
-})();
-
-// ===== Visor de detalle: clic en la tarjeta abre la ficha, no WhatsApp =====
-(function(){
-  var dlg = document.getElementById('viewer');
-  if (!dlg || !dlg.showModal) return;   // sin soporte, la tarjeta sigue yendo a WhatsApp
-  var shot = document.getElementById('vshot');
-  var img  = document.getElementById('vimg');
-  var last = null;
-
-  function open(card, e){
-    e.preventDefault();
-    last = card;
-    var big = card.querySelector('.thumb img');
-    img.src = big.currentSrc || big.src;
-    img.alt = big.alt;
-    document.getElementById('vtag').textContent   = card.querySelector('.tag').textContent;
-    document.getElementById('vtitle').textContent = card.querySelector('h3').textContent;
-    document.getElementById('vdesc').textContent  = card.querySelector('p').textContent;
-    document.getElementById('vwa').href           = card.getAttribute('href');
-
-    var dl = document.getElementById('vspecs');
-    dl.innerHTML = '';
-    (card.dataset.spec || '').split(';').filter(Boolean).forEach(function(row){
-      var p = row.split('|');
-      var d = document.createElement('div');
-      d.innerHTML = '<dt></dt><dd></dd>';
-      d.querySelector('dt').textContent = p[0];
-      d.querySelector('dd').textContent = p[1] || '';
-      dl.appendChild(d);
-    });
-
-    shot.classList.remove('on');
-    img.style.transformOrigin = 'center';
-    dlg.showModal();
-  }
-
-  document.querySelectorAll('#grid .card').forEach(function(card){
-    card.addEventListener('click', function(e){
-      if (e.metaKey || e.ctrlKey || e.button === 1) return;  // abrir en pestaña nueva sigue funcionando
-      open(card, e);
-    });
-  });
-
-  // Zoom macro: el origen sigue al cursor
-  shot.addEventListener('click', function(){ shot.classList.toggle('on'); });
-  shot.addEventListener('mousemove', function(e){
-    if (!shot.classList.contains('on')) return;
-    var r = shot.getBoundingClientRect();
-    img.style.transformOrigin =
-      ((e.clientX - r.left) / r.width * 100) + '% ' + ((e.clientY - r.top) / r.height * 100) + '%';
-  });
-  shot.addEventListener('touchmove', function(e){
-    if (!shot.classList.contains('on') || !e.touches[0]) return;
-    var r = shot.getBoundingClientRect(), t = e.touches[0];
-    img.style.transformOrigin =
-      ((t.clientX - r.left) / r.width * 100) + '% ' + ((t.clientY - r.top) / r.height * 100) + '%';
-  }, {passive:true});
-
-  document.getElementById('vclose').addEventListener('click', function(){ dlg.close(); });
-  dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener('close', function(){
-    shot.classList.remove('on');
-    if (last) last.focus();
-  });
-})();
-
-// ===== Ventana al universo: deriva continua, parallax de cursor, vía láctea =====
-(function(){
-  var cv = document.getElementById('stars');
-  if (!cv) return;
-  var ctx = cv.getContext('2d', { alpha: true });
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var W = 0, H = 0, stars = [], shots = [], sprites = [];
-  var scrollY = 0, mx = 0, my = 0, tx = 0, ty = 0, raf = null, t = 0, nextShot = 9;
-
-  // Tintes: casi todas frías, unas pocas cálidas. Un cielo real no es blanco.
-  var TINTS = [
-    [255,255,255], [214,228,255], [188,208,255],
-    [164,192,255], [255,236,208], [255,206,190]
-  ];
-
-  // Cada estrella se dibuja de un sprite ya renderizado: mucho más barato que arc().
-  function makeSprites(){
-    sprites = TINTS.map(function(c){
-      var S = 34, off = document.createElement('canvas');
-      off.width = off.height = S;
-      var o = off.getContext('2d');
-      var g = o.createRadialGradient(S/2, S/2, 0, S/2, S/2, S/2);
-      g.addColorStop(0,    'rgba('+c[0]+','+c[1]+','+c[2]+',1)');
-      g.addColorStop(0.16, 'rgba('+c[0]+','+c[1]+','+c[2]+',.82)');
-      g.addColorStop(0.36, 'rgba('+c[0]+','+c[1]+','+c[2]+',.20)');
-      g.addColorStop(1,    'rgba('+c[0]+','+c[1]+','+c[2]+',0)');
-      o.fillStyle = g; o.fillRect(0, 0, S, S);
-      return off;
-    });
-  }
-
-  // La banda de la galaxia: una diagonal donde la densidad se dispara.
-  function inBand(x, y){
-    var d = Math.abs((y - H * 0.34) - (x - W * 0.5) * 0.42);
-    return Math.exp(-(d * d) / (2 * Math.pow(H * 0.20, 2)));
-  }
-
-  function build(){
-    stars = [];
-    var target = Math.min(Math.round(W * H * 0.00042), 900);
-    var guard = 0;
-    while (stars.length < target && guard < target * 14){
-      guard++;
-      var x = Math.random() * W, y = Math.random() * H;
-      // Rechazo por densidad: la banda acepta casi siempre, el resto no.
-      var band = inBand(x, y);
-      if (Math.random() > 0.22 + band * 0.78) continue;
-      var z = Math.pow(Math.random(), 1.9);            // muchas lejanas, pocas cercanas
-      stars.push({
-        x: x, y: y, z: z,
-        size: 1.1 + z * 6.2,
-        a: 0.20 + z * 0.62 + band * 0.12,
-        sp: sprites[(Math.random() * sprites.length) | 0],
-        vx: -(0.0045 + z * 0.030),                     // deriva: las cercanas corren más
-        vy: -(0.0012 + z * 0.007),
-        tw: 0.30 + Math.random() * 0.85,
-        ph: Math.random() * 6.2832
-      });
-    }
-  }
-
-  function size(){
-    W = cv.clientWidth; H = cv.clientHeight;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    makeSprites(); build();
-    if (reduce) draw(0);
-  }
-
-  function draw(dt){
-    ctx.clearRect(0, 0, W, H);
-
-    // Resplandor difuso de la banda
-    var bg = ctx.createLinearGradient(0, H * 0.10, W, H * 0.58);
-    bg.addColorStop(0,   'rgba(110,140,220,0)');
-    bg.addColorStop(0.5, 'rgba(120,148,225,.055)');
-    bg.addColorStop(1,   'rgba(110,140,220,0)');
-    ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-
-    ctx.globalCompositeOperation = 'lighter';
-    var px = tx, py = ty;
-
-    for (var i = 0; i < stars.length; i++){
-      var st = stars[i];
-      if (!reduce){
-        st.x += st.vx * dt;
-        st.y += st.vy * dt;
-        if (st.x < -40) { st.x = W + 40; st.y = Math.random() * H; }
-        if (st.y < -40) { st.y = H + 40; st.x = Math.random() * W; }
-      }
-      // Parallax: cursor y scroll mueven cada capa a su propia velocidad
-      var x = st.x + px * (0.10 + st.z * 0.95);
-      var y = st.y + py * (0.10 + st.z * 0.95) - scrollY * (0.006 + st.z * 0.085);
-      y = ((y % (H + 80)) + (H + 80)) % (H + 80) - 40;
-
-      var a = reduce ? st.a : st.a * (0.62 + 0.38 * Math.sin(t * st.tw + st.ph));
-      var s = st.size;
-      ctx.globalAlpha = a < 0 ? 0 : (a > 1 ? 1 : a);
-      ctx.drawImage(st.sp, x - s, y - s, s * 2, s * 2);
-    }
-
-    // Una fugaz de vez en cuando. Sutil, no de postal.
-    if (!reduce){
-      for (var j = shots.length - 1; j >= 0; j--){
-        var sh = shots[j];
-        sh.p += dt * 0.0016;
-        if (sh.p >= 1){ shots.splice(j, 1); continue; }
-        var fade = Math.sin(sh.p * Math.PI);
-        var cx = sh.x + sh.dx * sh.p, cy = sh.y + sh.dy * sh.p;
-        var g2 = ctx.createLinearGradient(cx, cy, cx - sh.dx * 0.10, cy - sh.dy * 0.10);
-        g2.addColorStop(0, 'rgba(220,232,255,' + (0.68 * fade).toFixed(3) + ')');
-        g2.addColorStop(1, 'rgba(220,232,255,0)');
-        ctx.globalAlpha = 1; ctx.strokeStyle = g2; ctx.lineWidth = 1.5; ctx.lineCap = 'round';
-        ctx.beginPath(); ctx.moveTo(cx, cy);
-        ctx.lineTo(cx - sh.dx * 0.10, cy - sh.dy * 0.10); ctx.stroke();
-      }
-    }
-
-    ctx.globalAlpha = 1;
-    ctx.globalCompositeOperation = 'source-over';
-  }
-
-  var last = 0;
-  function loop(ts){
-    raf = requestAnimationFrame(loop);
-    var dt = last ? Math.min(ts - last, 50) : 16;
-    last = ts; t += dt * 0.0011;
-
-    tx += (mx - tx) * 0.045;                 // el parallax persigue al cursor con inercia
-    ty += (my - ty) * 0.045;
-
-    nextShot -= dt / 1000;
-    if (nextShot <= 0){
-      nextShot = 14 + Math.random() * 20;
-      var fromLeft = Math.random() < 0.5;
-      shots.push({
-        x: fromLeft ? -60 : W * (0.3 + Math.random() * 0.6),
-        y: H * (0.02 + Math.random() * 0.34),
-        dx: (fromLeft ? 1 : -1) * (W * (0.45 + Math.random() * 0.4)),
-        dy: H * (0.18 + Math.random() * 0.22),
-        p: 0
-      });
-    }
-    draw(dt);
-  }
-
-  function start(){ if (!raf && !reduce) { last = 0; raf = requestAnimationFrame(loop); } }
-  function stop(){ if (raf) { cancelAnimationFrame(raf); raf = null; } }
-
-  // La ventana: el cielo responde a dónde estás mirando
-  window.addEventListener('pointermove', function(e){
-    if (e.pointerType === 'touch') return;
-    mx = (e.clientX / window.innerWidth  - 0.5) * 46;
-    my = (e.clientY / window.innerHeight - 0.5) * 30;
-  }, { passive: true });
-  window.addEventListener('deviceorientation', function(e){
-    if (e.gamma == null) return;
-    mx = Math.max(-1, Math.min(1, e.gamma / 34)) * 34;
-    my = Math.max(-1, Math.min(1, ((e.beta || 45) - 45) / 34)) * 22;
-  }, { passive: true });
-
-  window.addEventListener('scroll', function(){ scrollY = window.scrollY || 0; }, { passive: true });
-  window.addEventListener('resize', size, { passive: true });
-  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
-
-  size(); start();
-})();
-</script>
-
+<script src="/js/site.js" defer></script>
 </body>
 </html>
