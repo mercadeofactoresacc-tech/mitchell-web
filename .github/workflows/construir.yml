@@ -1,0 +1,53 @@
+name: Construir y publicar el sitio
+
+# Se dispara cuando el cliente publica en el panel, cuando se toca el codigo,
+# o a mano desde la pestaña Actions.
+on:
+  repository_dispatch:
+    types: [contenido-actualizado]
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['src/**', '.github/workflows/**']
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+
+      - name: Construir el sitio desde el panel
+        working-directory: src
+        env:
+          BASE: ''          # vacio = dominio propio; '/mitchell-web' para la prueba
+          NOINDEX: '1'      # '0' cuando el dominio este conectado
+        run: python construir.py
+
+      - name: Incluir el panel de edicion
+        run: |
+          if [ -d admin ]; then cp -R admin src/dist/admin; fi
+
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: src/dist}
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
