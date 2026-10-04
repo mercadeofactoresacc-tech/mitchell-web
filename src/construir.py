@@ -123,8 +123,11 @@ def construir():
             f'<details{" open" if i == 0 else ""}><summary>{esc(q["pregunta"])}</summary>'
             f'<div class="a">{esc(q.get("respuesta",""))}</div></details>'
             for i, q in enumerate(preguntas))
-        home = re.sub(r'(<div class="faq">).*?(</div>\s*</div>\s*</section>)',
-                      lambda m: m.group(1) + bloque + m.group(2), home, count=1, flags=re.S)
+        # Reemplazar desde el primer <details> hasta el ultimo cierre
+        ini = home.find('<div class="faq">')
+        fin = home.rfind('</details>')
+        if ini != -1 and fin != -1 and fin > ini:
+            home = home[:ini + len('<div class="faq">')] + bloque + home[fin + len('</details>'):]
 
     home = home.replace('href="/css/site.css"', f'href="{BASE}/css/site.css"')
     home = home.replace('src="/js/site.js"', f'src="{BASE}/js/site.js"')
