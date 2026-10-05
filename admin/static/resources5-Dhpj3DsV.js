@@ -1,4 +1,4 @@
-import { a as defineLocalesResources } from "./sanity-D_nH2OOZ.js";
+import { a as defineLocalesResources } from "./sanity-DwlRLi-0.js";
 const createLocaleStrings = defineLocalesResources("create", {
   /** CTA in "Start writing in Create" dialog: Learn more */
   "start-in-create-dialog.cta.learn-more": "Learn more.",

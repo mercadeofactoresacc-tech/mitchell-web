@@ -131,7 +131,9 @@ def construir():
 
     home = home.replace('href="/css/site.css"', f'href="{BASE}/css/site.css"')
     home = home.replace('src="/js/site.js"', f'src="{BASE}/js/site.js"')
-    if NOINDEX and 'name="robots"' not in home:
+    import re as _re
+    home = _re.sub(r'<meta name="robots"[^>]*>\s*', '', home)      # limpiar el que venga
+    if NOINDEX:
         home = home.replace("</head>", '<meta name="robots" content="noindex, nofollow">\n</head>')
     open(os.path.join(SALIDA, "index.html"), "w", encoding="utf-8").write(home)
 
@@ -139,6 +141,8 @@ def construir():
     shutil.copytree(os.path.join(RAIZ, "public/css"), os.path.join(SALIDA, "css"), dirs_exist_ok=True)
     shutil.copytree(os.path.join(RAIZ, "public/js"),  os.path.join(SALIDA, "js"),  dirs_exist_ok=True)
     open(os.path.join(SALIDA, ".nojekyll"), "w").write("")
+    if not BASE:                      # solo en produccion, con dominio propio
+        open(os.path.join(SALIDA, "CNAME"), "w").write("manufacturasmitchell.com\n")
     open(os.path.join(SALIDA, "robots.txt"), "w").write(
         "User-agent: *\nDisallow: /\n" if NOINDEX else
         "User-agent: *\nAllow: /\nSitemap: https://manufacturasmitchell.com/sitemap.xml\n")

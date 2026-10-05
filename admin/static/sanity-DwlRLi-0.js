@@ -11,7 +11,7 @@ var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "
 var _e2, _t, _r, _o, _n, _s, _i, _a, _client, _client2, _client3, _client4, _client5, _httpRequest, _client6, _httpRequest2, _client7, _httpRequest3, _client8, _httpRequest4, _client9, _client10, _httpRequest5, _client11, _httpRequest6, _client12, _httpRequest7, _client13, _httpRequest8, _client14, _httpRequest9, _client15, _httpRequest10, _client16, _httpRequest11, _client17, _httpRequest12, _client18, _httpRequest13, _client19, _httpRequest14, _clientConfig, _originalHttpRequest, _httpRequest15, _clientConfig2, _originalHttpRequest2, _httpRequest16, _localTypeNames, _b, _c;
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
-  return "/mitchell-web/admin/" + dep;
+  return "/admin/" + dep;
 };
 const seen = {};
 const __vitePreload = function preload(baseModule, deps, importerUrl) {
@@ -35341,7 +35341,7 @@ function codeSyntaxHighlightingStyle({
 function codeBaseStyle() {
   return ft`color:var(--card-code-fg-color);& code{font-family:inherit;&.refractor .token{${codeSyntaxHighlightingStyle}}}& a{color:inherit;text-decoration:underline;border-radius:1px;}& svg{display:inline;}& [data-sanity-icon]{vertical-align:baseline;}`;
 }
-const LazyRefractor = reactExports.lazy(() => __vitePreload(() => import("./refractor-CIqXP2Rr.js"), true ? [] : void 0)), StyledCode = /* @__PURE__ */ gt$1.pre.withConfig({
+const LazyRefractor = reactExports.lazy(() => __vitePreload(() => import("./refractor-pyHQCsMj.js"), true ? [] : void 0)), StyledCode = /* @__PURE__ */ gt$1.pre.withConfig({
   displayName: "StyledCode",
   componentId: "sc-4dymyn-0"
 })(codeBaseStyle, responsiveCodeFontStyle), Code = reactExports.forwardRef(function(props2, ref) {
@@ -43321,7 +43321,7 @@ function _fetch(client2, httpRequest, _stega, query, _params = {}, options = {})
   return stega.enabled ? $request.pipe(
     combineLatestWith(
       from$1(
-        __vitePreload(() => import("./stegaEncodeSourceMap-CdyI-KFK.js"), true ? [] : void 0).then(function(n2) {
+        __vitePreload(() => import("./stegaEncodeSourceMap-lSR2srBn.js"), true ? [] : void 0).then(function(n2) {
           return n2.stegaEncodeSourceMap$1;
         }).then(
           ({ stegaEncodeSourceMap }) => stegaEncodeSourceMap
@@ -43857,7 +43857,7 @@ function optionsFromFile(opts, file2) {
   );
 }
 var defaults = (obj, defaults2) => Object.keys(defaults2).concat(Object.keys(obj)).reduce((target, prop) => (target[prop] = typeof obj[prop] > "u" ? defaults2[prop] : obj[prop], target), {});
-const pick$1 = (obj, props2) => props2.reduce((selection, prop) => (typeof obj[prop] > "u" || (selection[prop] = obj[prop]), selection), {}), eventSourcePolyfill = defer$1(() => __vitePreload(() => import("./browser-CGYH4L7T.js"), true ? [] : void 0)).pipe(
+const pick$1 = (obj, props2) => props2.reduce((selection, prop) => (typeof obj[prop] > "u" || (selection[prop] = obj[prop]), selection), {}), eventSourcePolyfill = defer$1(() => __vitePreload(() => import("./browser-BfTQ5udL.js"), true ? [] : void 0)).pipe(
   map$2(({ default: EventSource2 }) => EventSource2),
   shareReplay(1)
 ), RETRYABLE_STATUSES = /* @__PURE__ */ new Set([408, 429]);
@@ -189663,7 +189663,7 @@ const CardOverlay = gt$1(Card)`
   min-height: 3.75rem;
   max-height: 30dvh;
   aspect-ratio: var(--aspect-ratio);
-`, VideoPlayer = reactExports.lazy(() => __vitePreload(() => import("./VideoPlayer-scR08vcO.js"), true ? [] : void 0).then((module) => ({
+`, VideoPlayer = reactExports.lazy(() => __vitePreload(() => import("./VideoPlayer-DEM4Gh-O.js"), true ? [] : void 0).then((module) => ({
   default: module.VideoPlayer
 }))), MenuActionsWrapper = gt$1(Inline)`
   position: absolute;
@@ -190424,7 +190424,7 @@ const VideoField = (props2) => props2.renderDefault({
 }), canvasLocaleNamespace = "canvas", canvasUsEnglishLocaleBundle = {
   locale: "en-US",
   namespace: canvasLocaleNamespace,
-  resources: () => __vitePreload(() => import("./resources4-D6uhYo-y.js"), true ? [] : void 0)
+  resources: () => __vitePreload(() => import("./resources4-JfZuZpws.js"), true ? [] : void 0)
 }, INITIAL_STATE$5 = {
   value: null,
   loading: true
@@ -191263,7 +191263,7 @@ const CANVAS_INTEGRATION_NAME = "sanity/canvas-integration", canvasIntegration =
 })), commentsLocaleNamespace = "comments", commentsUsEnglishLocaleBundle = {
   locale: "en-US",
   namespace: commentsLocaleNamespace,
-  resources: () => __vitePreload(() => import("./resources-BlnttCbm.js"), true ? [] : void 0)
+  resources: () => __vitePreload(() => import("./resources-C9sJoJQr.js"), true ? [] : void 0)
 };
 function CommentsAuthoringPathProvider(props2) {
   const $2 = distExports$2.c(6), {
@@ -197715,7 +197715,7 @@ function getCreateDocumentUrl(create2) {
 const createLocaleNamespace = "create", createUsEnglishLocaleBundle = {
   locale: "en-US",
   namespace: createLocaleNamespace,
-  resources: () => __vitePreload(() => import("./resources5-CM59CHXz.js"), true ? [] : void 0)
+  resources: () => __vitePreload(() => import("./resources5-Dhpj3DsV.js"), true ? [] : void 0)
 }, CreateDocumentLinkCtaClicked = defineEvent({
   name: "Create Document Link CTA Clicked",
   version: 1,
@@ -201871,7 +201871,7 @@ const SCHEDULED_PUBLISHING_NAME = "sanity/scheduled-publishing", scheduledPublis
 }), tasksLocaleNamespace = "tasks", tasksUsEnglishLocaleBundle = {
   locale: "en-US",
   namespace: tasksLocaleNamespace,
-  resources: () => __vitePreload(() => import("./resources3-D-CGaBhK.js"), true ? [] : void 0)
+  resources: () => __vitePreload(() => import("./resources3-BBQ4YJ-0.js"), true ? [] : void 0)
 };
 function TasksEnabledProvider(t0) {
   var _a2;
@@ -208413,7 +208413,7 @@ function _temp2$9$1(state2) {
 function _temp$k$1() {
   return Date.now() + 5e3;
 }
-const DevServerStoppedErrorScreen = reactExports.lazy(() => __vitePreload(() => import("./ViteDevServerStopped-C46KqASh.js"), true ? [] : void 0).then((DevServerStopped) => ({
+const DevServerStoppedErrorScreen = reactExports.lazy(() => __vitePreload(() => import("./ViteDevServerStopped-DEzln59K.js"), true ? [] : void 0).then((DevServerStopped) => ({
   default: DevServerStopped.DevServerStoppedErrorScreen
 })));
 function StudioErrorBoundary(props2) {
@@ -208439,7 +208439,7 @@ function StudioErrorBoundary(props2) {
   }, []);
   return useHotModuleReload(handleResetError), (caughtError == null ? void 0 : caughtError.error) ? caughtError.error instanceof CorsOriginError2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(CorsOriginErrorScreen, { projectId: caughtError.error.projectId }) : caughtError.error instanceof SchemaError ? /* @__PURE__ */ jsxRuntimeExports.jsx(SchemaErrorsScreen, { schema: caughtError.error.schema }) : "ViteDevServerStoppedError" in caughtError.error && caughtError.error.ViteDevServerStoppedError ? /* @__PURE__ */ jsxRuntimeExports.jsx(DevServerStoppedErrorScreen, {}) : isImportError(caughtError.error) ? /* @__PURE__ */ jsxRuntimeExports.jsx(ImportErrorScreen, { error: caughtError.error, eventId: caughtError.eventId, autoReload: true }) : /* @__PURE__ */ jsxRuntimeExports.jsx(FallbackErrorScreen, { heading, error: caughtError.error, eventId: caughtError.eventId, onReset: handleResetError }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ErrorBoundary2, { onCatch: handleCatchError, children });
 }
-reactExports.lazy(() => __vitePreload(() => import("./ViteDevServerStopped-C46KqASh.js"), true ? [] : void 0).then((DevServerStopped) => ({
+reactExports.lazy(() => __vitePreload(() => import("./ViteDevServerStopped-DEzln59K.js"), true ? [] : void 0).then((DevServerStopped) => ({
   default: DevServerStopped.DetectViteDevServerStopped
 })));
 const detectViteDevServerStopped = void 0, SearchFullscreenPortalCard = gt$1(Card)`
@@ -215109,7 +215109,7 @@ const kebabCase = /* @__PURE__ */ getDefaultExportFromCjs(kebabCaseExports);
 const structureLocaleNamespace = "structure", structureUsEnglishLocaleBundle = defineLocaleResourceBundle({
   locale: "en-US",
   namespace: structureLocaleNamespace,
-  resources: () => __vitePreload(() => import("./resources6-Bts4GkLh.js"), true ? [] : void 0)
+  resources: () => __vitePreload(() => import("./resources6-CEpX3HAB.js"), true ? [] : void 0)
 }), IMPLICIT_SCHEMA_TYPE_FIELDS = ["_id", "_type", "_createdAt", "_updatedAt", "_rev"];
 function joinReferences(schemaType, path3, strict = false) {
   const [head, ...tail] = path3;
@@ -231794,7 +231794,7 @@ const documentActions = [PublishAction, UnpublishAction, DiscardChangesAction, D
       name: (options == null ? void 0 : options.name) || "structure",
       title: (options == null ? void 0 : options.title) || "Structure",
       icon,
-      component: reactExports.lazy(() => __vitePreload(() => import("./index3-C_AdlLaG.js"), true ? [] : void 0)),
+      component: reactExports.lazy(() => __vitePreload(() => import("./index3-ePsbyIou.js"), true ? [] : void 0)),
       canHandleIntent: (intent, params) => intent === "create" ? canHandleCreateIntent(params) : intent === "edit" ? canHandleEditIntent(params) : false,
       getIntentState,
       // Controlled by sanity/src/structure/components/structureTool/StructureTitle.tsx
@@ -231975,7 +231975,7 @@ const studioConfig = defineConfig({
   title: "Manufacturas Mitchell",
   projectId: "5202v4k4",
   dataset: "production",
-  basePath: "/mitchell-web/admin",
+  basePath: "/admin",
   plugins: [structureTool({
     structure: (S4) => S4.list().title("Contenido").items([
       S4.listItem().title("Datos de la empresa").id("empresa").child(S4.document().schemaType("empresa").documentId("empresa")),

@@ -1,17 +1,17 @@
 {
   "icons": [
     {
-      "src": "/mitchell-web/admin/static/favicon-96.png",
+      "src": "/admin/static/favicon-96.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "/mitchell-web/admin/static/favicon-192.png",
+      "src": "/admin/static/favicon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/mitchell-web/admin/static/favicon-512.png",
+      "src": "/admin/static/favicon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

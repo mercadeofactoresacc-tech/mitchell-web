@@ -31,8 +31,8 @@ jobs:
       - name: Construir el sitio desde el panel
         working-directory: src
         env:
-          BASE: ''          # vacio = dominio propio; '/mitchell-web' para la prueba
-          NOINDEX: '1'      # '0' cuando el dominio este conectado
+          BASE: ''            # dominio propio
+          NOINDEX: '0'        # buscadores permitidos
         run: python construir.py
 
       - name: Incluir el panel de edicion

@@ -1,4 +1,4 @@
-import { d as distExports, aq as useI18nText, j as jsxRuntimeExports, K as Pane, l as gt, av as _DEBUG, q as useStructureTool, at as usePane, w as Button, as as ArrowLeftIcon, N as BackLink, a8 as PaneHeader$1, M as usePaneLayout, aw as useGetI18nText, ax as CommandList, a9 as PaneContent, B as Box, T as Text, ay as PaneItem, au as PaneHeaderActions } from "./sanity-D_nH2OOZ.js";
+import { d as distExports, aq as useI18nText, j as jsxRuntimeExports, K as Pane, l as gt, av as _DEBUG, q as useStructureTool, at as usePane, w as Button, as as ArrowLeftIcon, N as BackLink, a8 as PaneHeader$1, M as usePaneLayout, aw as useGetI18nText, ax as CommandList, a9 as PaneContent, B as Box, T as Text, ay as PaneItem, au as PaneHeaderActions } from "./sanity-DwlRLi-0.js";
 const DividerContainer = gt(Box)`
   display: flex;
   align-items: center;
