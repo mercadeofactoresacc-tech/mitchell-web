@@ -9,7 +9,7 @@ on:
   # Red de seguridad: revisa el panel cada 10 minutos y republica si algo cambio.
   # Con esto el cliente publica y el sitio se actualiza solo, sin que nadie intervenga.
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/15 * * * *'
   push:
     branches: [main]
     paths: ['src/**', '.github/workflows/**']
