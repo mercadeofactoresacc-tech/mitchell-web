@@ -117,6 +117,40 @@ def construir():
     home = re.sub(r'<span class="count" id="count">[^<]*</span>',
                   f'<span class="count" id="count">{len(tarjetas)} líneas</span>', home)
 
+    # ── Cinta "Salido de la planta" ──
+    # Antes apuntaba a archivos de la maqueta que nunca existieron (/img/tejida-480.webp
+    # y 7 mas), asi que las 8 fotos salian rotas. Ahora sale del panel, igual que el resto.
+    CINTA = [
+        ("marquillas-para-ropa",                     "Tejida · damasco y satén"),
+        ("marquillas-3d",                            "3D · PVC flexible"),
+        ("clises-en-fotograbado",                    "Clisé · magnesio y bronce"),
+        ("herrajes-personalizados",                  "Herraje · zamac"),
+        ("accesorios-pvc",                           "Aplique · plastisol"),
+        ("llaveros-publicitarios",                   "Llavero · PVC"),
+        ("marquillas-y-capelladas-pvc-para-calzado", "Capellada · plastisol"),
+        ("repujes-en-sintetico",                     "Repuje · sintético"),
+    ]
+    figs = []
+    for slug, pie_txt in CINTA:
+        p = datos.get(slug) or {}
+        fotos = p.get("cdn") or []
+        if not fotos:
+            continue                      # sin foto en el panel, no se pinta un hueco
+        # la segunda foto, para que la cinta no repita la miniatura del catalogo
+        ref = fotos[1] if len(fotos) > 1 else fotos[0]
+        url = (ref.get("chico") or "").replace("w=480&", "w=640&h=480&fit=crop&")
+        if "h=480" not in url:
+            url = (ref.get("chico") or "") + "&h=480&fit=crop"
+        figs.append(
+            f'<figure><a href="{BASE}/{slug}/">'
+            f'<img src="{esc(url)}" alt="{esc(p.get("nombre",""))}" width="640" height="480" '
+            f'loading="lazy" decoding="async">'
+            f'<figcaption>{esc(pie_txt)}</figcaption></a></figure>')
+    if figs:
+        home = re.sub(r'<div class="track" id="track">.*?</div>',
+                      '<div class="track" id="track">\n' + "\n".join(figs) + '\n  </div>',
+                      home, count=1, flags=re.S)
+
     # Preguntas frecuentes
     if preguntas:
         bloque = "".join(
