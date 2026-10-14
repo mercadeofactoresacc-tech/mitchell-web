@@ -171,8 +171,14 @@ def construir():
     tel     = _d("telefono","(601) 366 0319")
     tel_url = "tel:+57" + "".join(c for c in tel if c.isdigit())
     horario = _d("horario","Lunes a viernes, 7:00 a.m. a 5:00 p.m.")
-    home = home.replace("<i>Marquillas y clisés</i><b>Mitchell</b>",
-                        f"<i>{esc(l1)}</i><b>{esc(l2)}</b>")
+    logo = (f'<img src="{BASE}/marca/logo.png" '
+            f'srcset="{BASE}/marca/logo.png 230w, {BASE}/marca/logo@2x.png 460w" '
+            f'sizes="230px" width="230" height="61" alt="{esc(l1 + " " + l2)}">')
+    home = home.replace("<i>Marquillas y clisés</i><b>Mitchell</b>", logo)
+    home = home.replace("</head>",
+        f'<link rel="icon" type="image/png" sizes="32x32" href="{BASE}/marca/favicon-32.png">\n'
+        f'<link rel="icon" type="image/png" sizes="16x16" href="{BASE}/marca/favicon-16.png">\n'
+        f'<link rel="apple-touch-icon" href="{BASE}/marca/apple-touch-icon.png">\n</head>', 1)
     home = home.replace('<a class="tel" href="tel:+576013660319">(601) 366 0319</a>',
                         f'<a class="tel" href="{tel_url}">{esc(tel)}</a>')
     home = home.replace('<a href="tel:+576013660319">(601) 366 0319</a>',
@@ -191,6 +197,7 @@ def construir():
     # ── Archivos de apoyo ──
     shutil.copytree(os.path.join(RAIZ, "public/css"), os.path.join(SALIDA, "css"), dirs_exist_ok=True)
     shutil.copytree(os.path.join(RAIZ, "public/js"),  os.path.join(SALIDA, "js"),  dirs_exist_ok=True)
+    shutil.copytree(os.path.join(RAIZ, "public/marca"), os.path.join(SALIDA, "marca"), dirs_exist_ok=True)
     open(os.path.join(SALIDA, ".nojekyll"), "w").write("")
     if not BASE:                      # solo en produccion, con dominio propio
         open(os.path.join(SALIDA, "CNAME"), "w").write("manufacturasmitchell.com\n")

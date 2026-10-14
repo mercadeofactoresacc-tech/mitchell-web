@@ -102,7 +102,7 @@ def cabecera(activo=""):
         for f, t in NAV2)
     return f"""<div class="topbar">
   <nav class="wrap nav1" aria-label="Principal">
-    <a href="{BASE}/" class="logo"><i>{esc(LOGO1())}</i><b>{esc(LOGO2())}</b></a>
+    <a href="{BASE}/" class="logo" aria-label="Inicio">{logo_img()}</a>
     <div class="mid">
       <a href="{BASE}/#catalogo">Qué fabricamos</a>
       <a href="{BASE}/#proceso">Cómo trabajamos</a>
@@ -124,7 +124,7 @@ def pie():
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a href="{BASE}/" class="logo" style="margin-bottom:1.2rem"><i>{esc(LOGO1())}</i><b>{esc(LOGO2())}</b></a>
+        <a href="{BASE}/" class="logo" style="margin-bottom:1.2rem" aria-label="Inicio">{logo_img()}</a>
         <p class="legal" style="max-width:21rem">Fábrica de marquillas, clisés, apliques en PVC y herrajes para la industria de la confección y el calzado. Bogotá, Colombia.</p>
       </div>
       <div><h4>Qué fabricamos</h4><ul>{links}</ul></div>
@@ -174,6 +174,14 @@ TEL     = lambda: _e("telefono", "(601) 366 0319")
 TEL_URL = lambda: "tel:+57" + "".join(c for c in TEL() if c.isdigit())
 HORARIO = lambda: _e("horario", "Lunes a viernes, 7:00 a.m. a 5:00 p.m.")
 
+def logo_img(estilo=""):
+    """El logo es una imagen, no texto. Las dos lineas del panel quedan como
+    texto alternativo: es lo que lee Google y un lector de pantalla."""
+    alt = f"{LOGO1()} {LOGO2()}"
+    return (f'<img src="{BASE}/marca/logo.png" '
+            f'srcset="{BASE}/marca/logo.png 230w, {BASE}/marca/logo@2x.png 460w" '
+            f'sizes="230px" width="230" height="61" alt="{esc(alt)}"{estilo}>')
+
 def documento(titulo, desc, cuerpo, canonical, extra_head=""):
     robots = '<meta name="robots" content="noindex, nofollow">' if NOINDEX else ''
     return f"""<!DOCTYPE html>
@@ -184,6 +192,9 @@ def documento(titulo, desc, cuerpo, canonical, extra_head=""):
 <title>{esc(titulo)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="https://manufacturasmitchell.com{canonical}">
+<link rel="icon" type="image/png" sizes="32x32" href="{BASE}/marca/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{BASE}/marca/favicon-16.png">
+<link rel="apple-touch-icon" href="{BASE}/marca/apple-touch-icon.png">
 <meta name="theme-color" content="#09090B">
 {robots}
 <meta property="og:title" content="{esc(titulo)}">

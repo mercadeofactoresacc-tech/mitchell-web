@@ -73,7 +73,10 @@ section{padding-block:var(--pad)}
         background:rgba(7,10,18,.72);backdrop-filter:saturate(180%) blur(22px);
         border-bottom:1px solid var(--line)}
 .nav1{display:flex;align-items:center;gap:1rem;min-height:62px}
-.logo{display:flex;flex-direction:column;line-height:1;flex:none}
+.logo{display:flex;align-items:center;line-height:1;flex:none}
+.logo img{display:block;height:54px;width:auto}
+footer .logo img{height:62px}
+@media(max-width:620px){.logo img{height:44px}}
 .logo i{font-style:normal;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;
         color:var(--accent);font-weight:600;margin-bottom:4px}
 .logo b{font-size:1.22rem;font-weight:600;letter-spacing:-.035em;color:#fff;line-height:.95}
