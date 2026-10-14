@@ -17,7 +17,7 @@ DATASET = "production"
 RAIZ    = os.path.dirname(os.path.abspath(__file__))
 
 def consultar(groq):
-    url = (f"https://{PROJECT}.apicdn.sanity.io/v2021-10-21/data/query/{DATASET}"
+    url = (f"https://{PROJECT}.api.sanity.io/v2021-10-21/data/query/{DATASET}"
            f"?query={urllib.parse.quote(groq)}")
     with urllib.request.urlopen(url, timeout=60) as r:
         return json.loads(r.read().decode())["result"]

@@ -99,7 +99,7 @@ def cabecera(activo=""):
         for f, t in NAV2)
     return f"""<div class="topbar">
   <nav class="wrap nav1" aria-label="Principal">
-    <a href="{BASE}/" class="logo"><i>Marquillas y clisés</i><b>Mitchell</b></a>
+    <a href="{BASE}/" class="logo"><i>{esc(LOGO1())}</i><b>{esc(LOGO2())}</b></a>
     <div class="mid">
       <a href="{BASE}/#catalogo">Qué fabricamos</a>
       <a href="{BASE}/#proceso">Cómo trabajamos</a>
@@ -107,7 +107,7 @@ def cabecera(activo=""):
       <a href="{BASE}/#preguntas">Preguntas</a>
     </div>
     <div class="end">
-      <a class="tel" href="tel:+576013660319">(601) 366 0319</a>
+      <a class="tel" href="{TEL_URL()}">{esc(TEL())}</a>
       <a class="btn btn-white" href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">Cotizar</a>
       <button class="burger" aria-label="Abrir menú"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
@@ -121,7 +121,7 @@ def pie():
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a href="{BASE}/" class="logo" style="margin-bottom:1.2rem"><i>Marquillas y clisés</i><b>Mitchell</b></a>
+        <a href="{BASE}/" class="logo" style="margin-bottom:1.2rem"><i>{esc(LOGO1())}</i><b>{esc(LOGO2())}</b></a>
         <p class="legal" style="max-width:21rem">Fábrica de marquillas, clisés, apliques en PVC y herrajes para la industria de la confección y el calzado. Bogotá, Colombia.</p>
       </div>
       <div><h4>Qué fabricamos</h4><ul>{links}</ul></div>
@@ -135,7 +135,7 @@ def pie():
         <b class="q">Razón social por confirmar</b><br><span class="q">NIT por confirmar</span><br><br>
         Diagonal 16A # 24D-55 Sur<br>Barrio Restrepo, Bogotá D.C.<br><br>
         <a href="{WA}" target="_blank" rel="noopener">WhatsApp 312 379 4395</a><br>
-        <a href="tel:+576013660319">(601) 366 0319</a><br>
+        <a href="{TEL_URL()}">{esc(TEL())}</a><br>
         <a href="mailto:info@manufacturasmitchell.com">info@manufacturasmitchell.com</a><br><br>
         Lunes a viernes, 7:00 a.m. – 5:00 p.m.</p></div>
     </div>
@@ -153,10 +153,23 @@ def pie():
 NOINDEX = os.environ.get("NOINDEX", "1") == "1"
 FUENTE  = os.environ.get("FUENTE", "local")   # "local" o "panel"
 _PANEL  = None
+_EMP    = {}
 if FUENTE == "panel":
     _PANEL = json.load(open(os.path.join(RAIZ, "contenido/del-panel.json"), encoding="utf-8"))
     CATALOGO = [tuple(x) for x in _PANEL["catalogo"]]
     FICHAS   = {s: [tuple(f) for f in _PANEL["productos"][s]["ficha"]] for s,_,_ in CATALOGO}
+    _EMP = _PANEL.get("empresa") or {}
+
+# Lo que el cliente edita en el panel. Si deja un campo vacio, queda el valor de respaldo.
+def _e(campo, respaldo):
+    v = (_EMP.get(campo) or "").strip() if isinstance(_EMP.get(campo), str) else _EMP.get(campo)
+    return v or respaldo
+
+LOGO1   = lambda: _e("logoLinea1", "Marquillas y clisés")
+LOGO2   = lambda: _e("logoLinea2", "Mitchell")
+TEL     = lambda: _e("telefono", "(601) 366 0319")
+TEL_URL = lambda: "tel:+57" + "".join(c for c in TEL() if c.isdigit())
+HORARIO = lambda: _e("horario", "Lunes a viernes, 7:00 a.m. a 5:00 p.m.")
 
 def documento(titulo, desc, cuerpo, canonical, extra_head=""):
     robots = '<meta name="robots" content="noindex, nofollow">' if NOINDEX else ''
@@ -249,7 +262,7 @@ def pagina_producto(slug, grupo, nombre, datos):
     <h2>¿Necesitas {esc(nombre.lower())}?</h2>
     <p class="lead">Mándanos el arte y te cotizamos en 24 horas. Precio por unidad para tres cantidades.</p>
     <a class="btn btn-white btn-lg" href="{wa(f'Hola, quiero cotizar {nombre.upper()}. Mi marca es:')}" target="_blank" rel="noopener">Escribir a 312 379 4395</a>
-    <p class="note">Lunes a viernes, 7:00 a.m. a 5:00 p.m. · También al (601) 366 0319</p>
+    <p class="note">{esc(HORARIO())} · También al {esc(TEL())}</p>
   </div>
 </section>
 {pie()}"""
@@ -282,7 +295,7 @@ def pagina_texto(slug, titulo, texto, datos, extra_html=""):
   <h2>¿Hablamos?</h2>
   <p class="lead">Mándanos el arte y te cotizamos en 24 horas.</p>
   <a class="btn btn-white btn-lg" href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">Escribir a 312 379 4395</a>
-  <p class="note">Lunes a viernes, 7:00 a.m. a 5:00 p.m. · También al (601) 366 0319</p>
+  <p class="note">{esc(HORARIO())} · También al {esc(TEL())}</p>
 </div></section>
 {pie()}"""
     desc = p.get("seo_desc") or f"{titulo} · Manufacturas Mitchell, fábrica de marquillas y clisés en Bogotá."

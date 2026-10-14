@@ -129,6 +129,23 @@ def construir():
         if ini != -1 and fin != -1 and fin > ini:
             home = home[:ini + len('<div class="faq">')] + bloque + home[fin + len('</details>'):]
 
+    # Logo, telefono y horario: lo que el cliente puso en el panel
+    def _d(c, r):
+        v = empresa.get(c)
+        return (v.strip() if isinstance(v, str) else v) or r
+    l1, l2 = _d("logoLinea1","Marquillas y clisés"), _d("logoLinea2","Mitchell")
+    tel     = _d("telefono","(601) 366 0319")
+    tel_url = "tel:+57" + "".join(c for c in tel if c.isdigit())
+    horario = _d("horario","Lunes a viernes, 7:00 a.m. a 5:00 p.m.")
+    home = home.replace("<i>Marquillas y clisés</i><b>Mitchell</b>",
+                        f"<i>{esc(l1)}</i><b>{esc(l2)}</b>")
+    home = home.replace('<a class="tel" href="tel:+576013660319">(601) 366 0319</a>',
+                        f'<a class="tel" href="{tel_url}">{esc(tel)}</a>')
+    home = home.replace('<a href="tel:+576013660319">(601) 366 0319</a>',
+                        f'<a href="{tel_url}">{esc(tel)}</a>')
+    home = home.replace("Lunes a viernes, 7:00 a.m. a 5:00 p.m. · También al (601) 366 0319",
+                        f"{esc(horario)} · También al {esc(tel)}")
+
     home = home.replace('href="/css/site.css"', f'href="{BASE}/css/site.css"')
     home = home.replace('src="/js/site.js"', f'src="{BASE}/js/site.js"')
     import re as _re
