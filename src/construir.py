@@ -172,8 +172,8 @@ def construir():
     tel_url = "tel:+57" + "".join(c for c in tel if c.isdigit())
     horario = _d("horario","Lunes a viernes, 7:00 a.m. a 5:00 p.m.")
     logo = (f'<img src="{BASE}/marca/logo.png" '
-            f'srcset="{BASE}/marca/logo.png 230w, {BASE}/marca/logo@2x.png 460w" '
-            f'sizes="230px" width="230" height="61" alt="{esc(l1 + " " + l2)}">')
+            f'srcset="{BASE}/marca/logo.png 197w, {BASE}/marca/logo@2x.png 394w, {BASE}/marca/logo@3x.png 591w" '
+            f'sizes="197px" width="197" height="44" alt="{esc(l1 + " " + l2)}">')
     home = home.replace("<i>Marquillas y clisés</i><b>Mitchell</b>", logo)
     home = home.replace("</head>",
         f'<link rel="icon" type="image/png" sizes="32x32" href="{BASE}/marca/favicon-32.png">\n'
