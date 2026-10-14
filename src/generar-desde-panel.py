@@ -62,7 +62,7 @@ def main():
             "ficha": [(f["campo"], f["valor"]) for f in (p.get("ficha") or []) if f.get("campo")],
             "minimo": p.get("minimo") or "",
             "entrega": p.get("entrega") or "",
-            "cdn": [{"chico": cdn(f, 480), "grande": cdn(f, 1000)} for f in fotos],
+            "cdn": [{"chico": cdn(f, 480), "grande": cdn(f, 1000), "xl": cdn(f, 1500)} for f in fotos],
         }
 
     salida = {

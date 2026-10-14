@@ -80,8 +80,11 @@ def anchos_de(i, anchos):
 def img_tag(slug, anchos, alt, clase="", lazy=True, sizes="100vw"):
     lz0 = 'loading="lazy" decoding="async"' if lazy else 'fetchpriority="high"'
     if isinstance(slug, dict):          # viene del panel: {"chico":..., "grande":...}
-        g_, c_ = slug.get("grande"), slug.get("chico")
-        ss = f'srcset="{c_} 480w, {g_} 1000w" sizes="{sizes}"' if g_ and c_ else ""
+        g_, c_, x_ = slug.get("grande"), slug.get("chico"), slug.get("xl")
+        # Las fotos del panel llegan hasta 1600 px: se ofrecen tres tamaños para que
+        # una pantalla retina no se quede con la version de 480.
+        cand = [f"{c_} 480w", f"{g_} 1000w"] + ([f"{x_} 1500w"] if x_ else [])
+        ss = f'srcset="{", ".join(cand)}" sizes="{sizes}"' if g_ and c_ else ""
         return f'<img src="{g_ or c_}" {ss} alt="{esc(alt)}" class="{clase}" {lz0}>'
     if 1000 in anchos:
         src = f"{BASE}/img/{slug}-1000.webp"
