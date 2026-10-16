@@ -12,7 +12,7 @@ on:
     - cron: '*/15 * * * *'
   push:
     branches: [main]
-    paths: ['src/**', '.github/workflows/**']
+    paths: ['src/**', 'admin/**', '.github/workflows/**']
 
 permissions:
   contents: read
