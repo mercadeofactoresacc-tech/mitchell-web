@@ -198,6 +198,7 @@ def construir():
     shutil.copytree(os.path.join(RAIZ, "public/css"), os.path.join(SALIDA, "css"), dirs_exist_ok=True)
     shutil.copytree(os.path.join(RAIZ, "public/js"),  os.path.join(SALIDA, "js"),  dirs_exist_ok=True)
     shutil.copytree(os.path.join(RAIZ, "public/marca"), os.path.join(SALIDA, "marca"), dirs_exist_ok=True)
+    shutil.copy(os.path.join(RAIZ, "public/404.html"), os.path.join(SALIDA, "404.html"))
     open(os.path.join(SALIDA, ".nojekyll"), "w").write("")
     if not BASE:                      # solo en produccion, con dominio propio
         open(os.path.join(SALIDA, "CNAME"), "w").write("manufacturasmitchell.com\n")
