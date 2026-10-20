@@ -179,8 +179,28 @@ def construir():
         f'<link rel="icon" type="image/png" sizes="32x32" href="{BASE}/marca/favicon-32.png">\n'
         f'<link rel="icon" type="image/png" sizes="16x16" href="{BASE}/marca/favicon-16.png">\n'
         f'<link rel="apple-touch-icon" href="{BASE}/marca/apple-touch-icon.png">\n</head>', 1)
+    # El fijo del encabezado se reemplaza por WhatsApp, que es por donde cotizan
+    wa_num = "".join(c for c in (empresa.get("whatsapp") or "573123794395") if c.isdigit())
+    wa_num = wa_num[2:] if wa_num.startswith("57") and len(wa_num) > 10 else wa_num
+    wa_leg = f"{wa_num[:3]} {wa_num[3:6]} {wa_num[6:]}" if len(wa_num) == 10 else wa_num
+    ICONO_WA = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4-.3.3c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg>')
     home = home.replace('<a class="tel" href="tel:+576013660319">(601) 366 0319</a>',
-                        f'<a class="tel" href="{tel_url}">{esc(tel)}</a>')
+        f'<a class="tel tel-wa" href="{wa("Hola, quiero cotizar.")}" target="_blank" rel="noopener">{ICONO_WA}<span>{esc(wa_leg)}</span></a>')
+
+    # Redes sociales en el pie, tomadas del panel
+    ICO = {
+     "facebook":'<path d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
+     "instagram":'<rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.25"/>',
+     "tiktok":'<path d="M16.6 2h-3.1v13.2a2.9 2.9 0 1 1-2.4-2.85V9.2a6 6 0 1 0 5.5 5.98V8.6a7 7 0 0 0 4 1.26V6.73a4 4 0 0 1-4-4.02z"/>',
+    }
+    enlaces = "".join(
+      f'<a href="{esc(empresa.get(r) or "")}" target="_blank" rel="noopener me" aria-label="{n}" title="{n}">'
+      f'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{ICO[r]}</svg></a>'
+      for r, n in (("facebook","Facebook"),("instagram","Instagram"),("tiktok","TikTok"))
+      if empresa.get(r))
+    if enlaces:
+        legal_pie = 'para la industria de la confección y el calzado.</p>'
+        home = home.replace(legal_pie, legal_pie + f'<div class="redes">{enlaces}</div>', 1)
     home = home.replace('<a href="tel:+576013660319">(601) 366 0319</a>',
                         f'<a href="{tel_url}">{esc(tel)}</a>')
     home = home.replace("Lunes a viernes, 7:00 a.m. a 5:00 p.m. · También al (601) 366 0319",

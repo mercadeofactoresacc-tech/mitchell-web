@@ -110,7 +110,9 @@ def cabecera(activo=""):
       <a href="{BASE}/#preguntas">Preguntas</a>
     </div>
     <div class="end">
-      <a class="tel" href="{TEL_URL()}">{esc(TEL())}</a>
+      <a class="tel tel-wa" href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.5l-.3.4-.3.3c-.1.1-.2.3-.1.5.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.7-.8c.2-.2.3-.2.5-.1l1.8.9c.2.1.4.2.4.3.1.1.1.5-.1 1Z"/></svg>
+        <span>{esc(WA_NUM())}</span></a>
       <a class="btn btn-white" href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">Cotizar</a>
       <button class="burger" aria-label="Abrir menú"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
     </div>
@@ -126,6 +128,7 @@ def pie():
       <div>
         <a href="{BASE}/" class="logo" style="margin-bottom:1.2rem" aria-label="Inicio">{logo_img()}</a>
         <p class="legal" style="max-width:21rem">Fábrica de marquillas, clisés, apliques en PVC y herrajes para la industria de la confección y el calzado. Bogotá, Colombia.</p>
+        {redes_html()}
       </div>
       <div><h4>Qué fabricamos</h4><ul>{links}</ul></div>
       <div><h4>La empresa</h4><ul>
@@ -173,6 +176,28 @@ LOGO2   = lambda: _e("logoLinea2", "Mitchell")
 TEL     = lambda: _e("telefono", "(601) 366 0319")
 TEL_URL = lambda: "tel:+57" + "".join(c for c in TEL() if c.isdigit())
 HORARIO = lambda: _e("horario", "Lunes a viernes, 7:00 a.m. a 5:00 p.m.")
+
+# WhatsApp con formato legible: 573123794395 -> 312 379 4395
+def WA_NUM():
+    n = "".join(c for c in _e("whatsapp","573123794395") if c.isdigit())
+    n = n[2:] if n.startswith("57") and len(n) > 10 else n
+    return f"{n[:3]} {n[3:6]} {n[6:]}" if len(n) == 10 else n
+
+ICONOS = {
+ "facebook":'<path d="M17 2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
+ "instagram":'<rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.25"/>',
+ "tiktok":'<path d="M16.6 2h-3.1v13.2a2.9 2.9 0 1 1-2.4-2.85V9.2a6 6 0 1 0 5.5 5.98V8.6a7 7 0 0 0 4 1.26V6.73a4 4 0 0 1-4-4.02z"/>',
+}
+def redes_html(clase="redes"):
+    """Los iconos salen del panel: si una red esta vacia, no se pinta."""
+    links = []
+    for red, titulo in (("facebook","Facebook"), ("instagram","Instagram"), ("tiktok","TikTok")):
+        url = _e(red, "")
+        if not url: continue
+        links.append(
+          f'<a href="{esc(url)}" target="_blank" rel="noopener me" aria-label="{titulo}" title="{titulo}">'
+          f'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{ICONOS[red]}</svg></a>')
+    return f'<div class="{clase}">{"".join(links)}</div>' if links else ""
 
 def logo_img(estilo=""):
     """El logo es una imagen, no texto. Las dos lineas del panel quedan como
