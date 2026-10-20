@@ -106,7 +106,7 @@ def cabecera(activo=""):
     <div class="mid">
       <a href="{BASE}/#catalogo">Qué fabricamos</a>
       <a href="{BASE}/#proceso">Cómo trabajamos</a>
-      <a href="{BASE}/#razones">La fábrica</a>
+      <a href="{BASE}/#razones">Nosotros</a>
       <a href="{BASE}/#preguntas">Preguntas</a>
     </div>
     <div class="end">
@@ -132,7 +132,7 @@ def pie():
       </div>
       <div><h4>Qué fabricamos</h4><ul>{links}</ul></div>
       <div><h4>La empresa</h4><ul>
-        <li><a href="{BASE}/#razones">La fábrica</a></li>
+        <li><a href="{BASE}/#razones">Nosotros</a></li>
         <li><a href="{BASE}/#proceso">Cómo trabajamos</a></li>
         <li><a href="{BASE}/#preguntas">Preguntas frecuentes</a></li>
         <li><a href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">Cotizar</a></li>
@@ -289,7 +289,7 @@ def pagina_producto(slug, grupo, nombre, datos):
         <a class="btn btn-line" href="{BASE}/#catalogo">Ver todo el catálogo</a>
       </div>
       {tabla}
-      <p class="nota-q">Los datos marcados con * están por confirmar.</p>
+      <p class="nota-q">El costo del molde y la política de reposición están por confirmar.</p>
     </div>
     {hero_img}
   </div>
@@ -299,7 +299,7 @@ def pagina_producto(slug, grupo, nombre, datos):
 <section class="cta">
   <div class="wrap">
     <h2>¿Necesitas {esc(nombre.lower())}?</h2>
-    <p class="lead">Mándanos el arte y te cotizamos en 24 horas. Precio por unidad para tres cantidades.</p>
+    <p class="lead">Mándanos el arte y te cotizamos en 8 horas. Precio por unidad para tres cantidades.</p>
     <a class="btn btn-white btn-lg" href="{wa(f'Hola, quiero cotizar {nombre.upper()}. Mi marca es:')}" target="_blank" rel="noopener">Escribir a 312 379 4395</a>
     <p class="note">{esc(HORARIO())} · También al {esc(TEL())}</p>
   </div>
@@ -332,7 +332,7 @@ def pagina_texto(slug, titulo, texto, datos, extra_html=""):
 {gal}
 <section class="cta"><div class="wrap">
   <h2>¿Hablamos?</h2>
-  <p class="lead">Mándanos el arte y te cotizamos en 24 horas.</p>
+  <p class="lead">Mándanos el arte y te cotizamos en 8 horas.</p>
   <a class="btn btn-white btn-lg" href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">Escribir a 312 379 4395</a>
   <p class="note">{esc(HORARIO())} · También al {esc(TEL())}</p>
 </div></section>
