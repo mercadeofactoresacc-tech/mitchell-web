@@ -204,8 +204,8 @@ def logo_img(estilo=""):
     texto alternativo: es lo que lee Google y un lector de pantalla."""
     alt = f"{LOGO1()} {LOGO2()}"
     return (f'<img src="{BASE}/marca/logo.png" '
-            f'srcset="{BASE}/marca/logo.png 197w, {BASE}/marca/logo@2x.png 394w, {BASE}/marca/logo@3x.png 591w" '
-            f'sizes="197px" width="197" height="44" alt="{esc(alt)}"{estilo}>')
+            f'srcset="{BASE}/marca/logo.png 244w, {BASE}/marca/logo@2x.png 488w, {BASE}/marca/logo@3x.png 732w" '
+            f'sizes="244px" width="244" height="54" alt="{esc(alt)}"{estilo}>')
 
 def documento(titulo, desc, cuerpo, canonical, extra_head=""):
     robots = '<meta name="robots" content="noindex, nofollow">' if NOINDEX else ''
