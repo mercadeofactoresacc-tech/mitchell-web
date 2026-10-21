@@ -487,3 +487,14 @@ body.interna .sky::after{background:linear-gradient(to bottom, rgba(7,10,18,.35)
   .tel-wa span{display:none}            /* en celular solo el icono, para que quepa */
   .tel-wa svg{width:21px;height:21px}
 }
+
+
+/* ── Mapa de Google al final de la pagina ── */
+.mapa{border-top:1px solid var(--line);background:var(--bg-2);padding-block:clamp(2.5rem,5vw,4rem)}
+.mapa .wrap{display:grid;gap:clamp(1.4rem,3vw,2.4rem);grid-template-columns:1fr}
+@media(min-width:900px){.mapa .wrap{grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);align-items:center}}
+.mapa-cab p{margin:.9rem 0 1.4rem;font-size:1.05rem;line-height:1.5;white-space:pre-line}
+.mapa-caja{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0d1320;
+           aspect-ratio:16/10}
+@media(max-width:620px){.mapa-caja{aspect-ratio:4/3}}
+.mapa-caja iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(.25) contrast(1.05)}

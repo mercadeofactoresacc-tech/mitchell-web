@@ -188,6 +188,38 @@ ICONOS = {
  "instagram":'<rect x="2.6" y="2.6" width="18.8" height="18.8" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.4" cy="6.6" r="1.25"/>',
  "tiktok":'<path d="M16.6 2h-3.1v13.2a2.9 2.9 0 1 1-2.4-2.85V9.2a6 6 0 1 0 5.5 5.98V8.6a7 7 0 0 0 4 1.26V6.73a4 4 0 0 1-4-4.02z"/>',
 }
+def mapa_html():
+    """Mapa de Google al final de la pagina. Se arma con la direccion del panel;
+    si pegaron un enlace de Google Maps, manda ese. Va con loading=lazy: no pesa
+    hasta que el visitante baja hasta el."""
+    import urllib.parse as _up
+    enlace = _e("mapa", "")
+    dire   = (_e("direccion","") or "").strip()      # como se muestra, con su salto
+    plana  = " ".join(dire.split())                   # como se le pide a Google
+    if enlace:
+        src = enlace if "output=embed" in enlace else enlace.rstrip("/") + "&output=embed"
+        abrir = enlace
+    elif plana:
+        q = _up.quote(f"{plana}, Bogotá, Colombia")
+        src   = f"https://www.google.com/maps?q={q}&output=embed"
+        abrir = f"https://www.google.com/maps/search/?api=1&query={q}"
+    else:
+        return ""
+    return f"""<section class="mapa" id="mapa" aria-label="Dónde queda la fábrica">
+  <div class="wrap">
+    <div class="mapa-cab">
+      <span class="mono">Dónde quedamos</span>
+      <p>{esc(dire)}</p>
+      <a class="btn btn-line" href="{esc(abrir)}" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div>
+    <div class="mapa-caja">
+      <iframe src="{esc(src)}" title="Ubicación de Manufacturas Mitchell en Bogotá"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+</section>"""
+
 def redes_html(clase="redes"):
     """Los iconos salen del panel: si una red esta vacia, no se pinta."""
     links = []
@@ -336,6 +368,7 @@ def pagina_texto(slug, titulo, texto, datos, extra_html=""):
   <a class="btn btn-white btn-lg" href="{wa('Hola, quiero cotizar.')}" target="_blank" rel="noopener">Escribir a 312 379 4395</a>
   <p class="note">{esc(HORARIO())} · También al {esc(TEL())}</p>
 </div></section>
+{mapa_html() if slug == "contacto" else ""}
 {pie()}"""
     desc = p.get("seo_desc") or f"{titulo} · Manufacturas Mitchell, fábrica de marquillas y clisés en Bogotá."
     return documento(f"{titulo} | Mitchell · Fábrica en Bogotá", desc, cuerpo, f"/{slug}/")

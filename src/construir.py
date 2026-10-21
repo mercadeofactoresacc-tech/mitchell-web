@@ -206,6 +206,11 @@ def construir():
     home = home.replace("Lunes a viernes, 7:00 a.m. a 5:00 p.m. · También al (601) 366 0319",
                         f"{esc(horario)} · También al {esc(tel)}")
 
+    # El mapa va al final de la portada, justo antes del pie
+    mapa = ns["mapa_html"]() if "mapa_html" in ns else ""
+    if mapa:
+        home = home.replace("<footer>", mapa + "\n<footer>", 1)
+
     home = home.replace('href="/css/site.css"', f'href="{BASE}/css/site.css"')
     home = home.replace('src="/js/site.js"', f'src="{BASE}/js/site.js"')
     import re as _re
