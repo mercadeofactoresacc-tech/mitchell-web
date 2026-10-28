@@ -1,4 +1,4 @@
-import{ao as Be}from"./sanity-zcafFROR.js";var $={exports:{}};/** @license
+import{ao as Be}from"./sanity-UperygEP.js";var $={exports:{}};/** @license
  * eventsource.js
  * Available under MIT License (MIT)
  * https://github.com/Yaffle/EventSource/
