@@ -44,9 +44,26 @@ def traer():
 def main():
     productos, empresa, inicio, preguntas = traer()
     print(f"Del panel: {len(productos)} productos · {len(preguntas)} preguntas")
-    faltan = [p["nombre"] for p in productos if not p.get("slug")]
-    if faltan:
-        sys.exit(f"Estos productos no tienen dirección web: {faltan}")
+    # Si un producto nuevo no trae direccion web, se arma sola con el nombre.
+    # Asi el cliente nunca tiene que ver ni entender ese campo tecnico.
+    import unicodedata
+    def direccion_desde(nombre):
+        s = unicodedata.normalize("NFD", nombre or "")
+        s = "".join(c for c in s if unicodedata.category(c) != "Mn").lower()
+        s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+        return s[:60] or "producto"
+
+    usadas = {p["slug"] for p in productos if p.get("slug")}
+    for p in productos:
+        if p.get("slug"):
+            continue
+        base = direccion_desde(p.get("nombre"))
+        s, n = base, 2
+        while s in usadas:               # dos productos con el mismo nombre
+            s, n = f"{base}-{n}", n + 1
+        p["slug"] = s
+        usadas.add(s)
+        print(f"  direccion web generada sola: {p['nombre']} -> /{s}/")
 
     datos = {}
     for p in productos:
