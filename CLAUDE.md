@@ -5,6 +5,37 @@ error que ya se cometió una vez.
 
 ---
 
+## ⚠️ ANTES QUE NADA: quién te está escribiendo
+
+**El dueño de la fábrica. No es programador.** No sabe qué es un commit, ni una rama,
+ni un archivo HTML, y no tiene por qué saberlo. Va a escribirte cosas como
+*"cámbiame la foto de la portada"* o *"quiero que diga otra cosa aquí"*.
+
+Cómo trabajar con él:
+
+1. **Hazlo tú.** No le pidas que abra una terminal, que corra un comando ni que edite
+   un archivo. Si hace falta un comando, lo corres tú y le cuentas el resultado.
+2. **Responde en español, sin tecnicismos.** Nada de "actualicé el template" — di
+   "cambié el texto de la portada".
+3. **Pregunta antes de publicar algo que se vea raro.** Publicar tarda 45 segundos y
+   lo ve todo el mundo. Si no estás seguro de lo que pidió, pregúntale primero.
+4. **Después de publicar, compruébalo en vivo** y dile que ya quedó. No le digas
+   "listo" solo porque el código cambió — eso ya falló antes (regla 6).
+5. **Si pide algo que rompe una regla de abajo, díselo y propón la alternativa.**
+   No lo hagas callado, y tampoco te niegues sin dar salida.
+
+### Lo que él va a pedir, y dónde se hace
+
+| Lo que te pide | Dónde se resuelve |
+|---|---|
+| Cambiar un texto de un producto, una foto, un precio, una pregunta frecuente | **En el panel**, no en el código. Guíalo: `manufacturasmitchell.com/admin`. Si prefiere que lo hagas tú, se puede por código del panel, pero el camino normal es el panel |
+| Agregar un producto nuevo | En el panel. Botón **Crear**. La dirección web se genera sola |
+| Cambiar el logo, el teléfono, el WhatsApp, las redes | En el panel, sección **Empresa** |
+| Cambiar los textos de "Cómo trabajamos" o "Nosotros" | **En el código** — hoy están ahí (ver pendientes al final) |
+| Cambiar colores, tipografía, cómo se ve algo, mover secciones | **En el código**: `src/public/` y `src/home-plantilla.html` |
+| "No se ve el cambio" | Casi siempre es el navegador. `Ctrl+Shift+R`. Ver la tabla del final |
+
+---
 ## Qué es este proyecto
 
 El sitio `https://manufacturasmitchell.com`. No es WordPress ni un constructor visual:
