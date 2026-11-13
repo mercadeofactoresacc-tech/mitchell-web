@@ -1,0 +1,17 @@
+{
+  "name": "mitchell-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build"
+  },
+  "dependencies": {
+    "@sanity/locale-es-es": "^1.2.39",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sanity": "^3.70.0",
+    "styled-components": "^6.1.13"
+  }
+}

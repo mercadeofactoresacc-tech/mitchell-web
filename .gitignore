@@ -1,0 +1,17 @@
+# Lo que se instala solo con "npm install" — nunca va al repositorio
+node_modules/
+studio/node_modules/
+studio/dist/
+studio/.sanity/
+
+# Lo que genera el constructor en cada build
+src/dist/
+
+# Basura del sistema
+.DS_Store
+Thumbs.db
+
+# Credenciales: NUNCA aqui. Van en archivos sueltos fuera del proyecto.
+*.token
+.env
+.env.*
